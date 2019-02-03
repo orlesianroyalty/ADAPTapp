@@ -1,3 +1,5 @@
+import { HouseProfileTabsPage } from './../pages/house-profile-tabs/house-profile';
+import { TipsPage } from './../pages/tips/tips';
 import { HousesPage } from './../pages/houses/houses';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
@@ -5,6 +7,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { ChecklistPage } from '../pages/myChecklist/my-checklist';
+import { RecommendationsPage } from '../pages/getRecommendations/get-recommendations';
 
 @Component({
   templateUrl: 'app.html'
@@ -22,7 +26,10 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'Houses', component: HousesPage }
+      { title: 'Houses', component: HouseProfileTabsPage },
+      { title: 'Get Recommendtions', component: RecommendationsPage},
+      { title: 'Get Tips', component: TipsPage},
+      { title: 'My Checklist', component: ChecklistPage}
     ];
 
   }
