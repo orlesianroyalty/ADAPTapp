@@ -12,7 +12,8 @@ import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TipsPage } from '../pages/tips/tips';
-
+import { RoomsPage } from '../pages/rooms/rooms';
+import { HouseDetailTabsPage } from '../pages/house-detail-tabs/house-detail-tabs';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,9 @@ import { TipsPage } from '../pages/tips/tips';
     MyProfileTabsPage,
     RecommendationsPage,
     TipsPage,
-    ResidentsPage
+    RoomsPage,
+    ResidentsPage,
+    HouseDetailTabsPage,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,9 @@ import { TipsPage } from '../pages/tips/tips';
     MyProfileTabsPage,
     RecommendationsPage,
     TipsPage,
-    ResidentsPage
+    RoomsPage,
+    ResidentsPage,
+    HouseDetailTabsPage,
   ],
   providers: [
     StatusBar,

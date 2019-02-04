@@ -7,6 +7,7 @@ import { NavController } from 'ionic-angular';
 })
 export class ResidentsPage {
 
+  names: string[];
   residents: Array<{name: string}>;
 
   constructor(public navCtrl: NavController) {
