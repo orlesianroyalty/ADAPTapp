@@ -1,6 +1,6 @@
 import { RecommendationsPage } from './../getRecommendations/get-recommendations';
 import { ChecklistPage } from './../myChecklist/my-checklist';
-import { HouseProfileTabsPage } from './../house-profile-tabs/house-profile';
+import { MyProfileTabsPage } from './../my-profile-tabs/my-profile';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { TipsPage } from '../tips/tips';
@@ -15,8 +15,8 @@ export class HomePage {
 
   }
 
-  goToHouseProfilePage() {
-    this.navCtrl.push(HouseProfileTabsPage);
+  goToMyProfilePage() {
+    this.navCtrl.push(MyProfileTabsPage);
   }
 
   goToMyChecklistPage() {

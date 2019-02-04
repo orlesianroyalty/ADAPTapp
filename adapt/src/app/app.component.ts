@@ -1,4 +1,4 @@
-import { HouseProfileTabsPage } from './../pages/house-profile-tabs/house-profile';
+import { MyProfileTabsPage } from './../pages/my-profile-tabs/my-profile';
 import { TipsPage } from './../pages/tips/tips';
 import { HousesPage } from './../pages/houses/houses';
 import { Component, ViewChild } from '@angular/core';
@@ -26,8 +26,8 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'Houses', component: HouseProfileTabsPage },
-      { title: 'Get Recommendtions', component: RecommendationsPage},
+      { title: 'My Profile', component: MyProfileTabsPage },
+      { title: 'Get Recommendations', component: RecommendationsPage},
       { title: 'Get Tips', component: TipsPage},
       { title: 'My Checklist', component: ChecklistPage}
     ];

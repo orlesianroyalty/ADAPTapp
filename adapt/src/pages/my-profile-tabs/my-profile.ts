@@ -4,10 +4,10 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 @Component({
-  selector: 'page-house-profile',
-  templateUrl: 'house-profile.html'
+  selector: 'page-my-profile',
+  templateUrl: 'my-profile.html'
 })
-export class HouseProfileTabsPage {
+export class MyProfileTabsPage {
 
   tab1: any;
   tab2: any;

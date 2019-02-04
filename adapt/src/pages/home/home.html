@@ -8,20 +8,40 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <button ion-button full color="orange" (click)="goToMyProfilePage()">
+            <ion-label>Profile</ion-label>
+        </button>
+      </ion-col>
+      <ion-col>
+          <button ion-button full color="orange" (click)="goToMyChecklistPage()">
+              <ion-label>My Checklist</ion-label>
+          </button>
+      </ion-col>
+    </ion-row>
 
-    <button ion-button color="orange" (click)="goToHouseProfilePage()">
-        <ion-label>Profile</ion-label>
-    </button>
 
-    <button ion-button color="orange" (click)="goToMyChecklistPage()">
-        <ion-label>My Checklist</ion-label>
-    </button>
+      <ion-row>
+        <ion-col>
+            <button ion-button full color="orange" (click)="goToRecommendationsPage()">
+                <ion-label>Get Recommendations</ion-label>
+            </button>
+        </ion-col>
+        <ion-col>
+            <button ion-button full color="orange" (click)="goToTipsPage()">
+                <ion-label>Tips</ion-label>
+            </button>
+        </ion-col>
+      </ion-row>
+      <ion-row justify-content-center>
+        <button ion-button  width=50% color="blue" (click)="goToTipsPage()">
+            <ion-label>Add New House</ion-label>
+        </button>
+      </ion-row>
+  </ion-grid>
 
-    <button ion-button color="orange" (click)="goToRecommendationsPage()">
-        <ion-label>Get Recommendations</ion-label>
-    </button>
 
-    <button ion-button color="orange" (click)="goToTipsPage()">
-        <ion-label>Tips</ion-label>
-    </button>
+
 </ion-content>

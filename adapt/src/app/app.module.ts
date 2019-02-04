@@ -1,6 +1,6 @@
 import { ResidentsPage } from './../pages/residents/residents';
 import { ChecklistPage } from './../pages/myChecklist/my-checklist';
-import { HouseProfileTabsPage } from './../pages/house-profile-tabs/house-profile';
+import { MyProfileTabsPage } from './../pages/my-profile-tabs/my-profile';
 import { RecommendationsPage } from './../pages/getRecommendations/get-recommendations';
 import { HousesPage } from './../pages/houses/houses';
 import { BrowserModule } from '@angular/platform-browser';
@@ -21,7 +21,7 @@ import { TipsPage } from '../pages/tips/tips';
     ListPage,
     HousesPage,
     ChecklistPage,
-    HouseProfileTabsPage,
+    MyProfileTabsPage,
     RecommendationsPage,
     TipsPage,
     ResidentsPage
@@ -37,7 +37,7 @@ import { TipsPage } from '../pages/tips/tips';
     ListPage,
     HousesPage,
     ChecklistPage,
-    HouseProfileTabsPage,
+    MyProfileTabsPage,
     RecommendationsPage,
     TipsPage,
     ResidentsPage

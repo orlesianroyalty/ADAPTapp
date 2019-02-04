@@ -7,7 +7,20 @@
     </ion-navbar>
   </ion-header>
   <ion-content>
-    <ion-item>Tom Brady<button ion-button>Edit</button><button ion-button>Delete</button></ion-item>
-    <ion-item>Jared Goff<button ion-button>Edit</button><button ion-button>Delete</button></ion-item>
-    <ion-item>Rain Li<button ion-button>Edit</button><button ion-button>Delete</button></ion-item>
+
+      <ion-list>
+        <button ion-item *ngFor="let resident of residents" >
+
+          {{resident.name}}
+          <div item-end>
+            <button ion-button>Edit</button>
+            <button ion-button>Delete</button>
+          </div>
+        </button>
+      </ion-list>
+
+      <ion-fab bottom end slot="fixed">
+
+         <button ion-fab fab-fixed color="primary"  ><ion-icon name="add"></ion-icon></button>
+      </ion-fab>
   </ion-content>
