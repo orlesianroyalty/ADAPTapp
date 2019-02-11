@@ -5,28 +5,21 @@ import { HouseDetailTabsPage } from './../house-detail-tabs/house-detail-tabs';
 
 @Component({
   selector: 'page-houses',
-  templateUrl: 'houses.html',
-  providers: HousesProvider
+  templateUrl: 'houses.html'
 })
 export class HousesPage {
-
+  houses: any;
   userID: String = "";
-  houses: Array<{name: string}>;
 
   constructor(public navCtrl: NavController, public housesProvider: HousesProvider) {
     this.userID = '123';
     this.houses = [];
-    for (let i = 1; i < 11; i++) {
-      this.houses.push({
-        name: "house" + i
-      });
-    }
 
     this.housesProvider.getHouses(this.userID)
-    .subscribe( data=> {
-
-        console.log(data);
-    }
+      .then( data => {
+          this.houses = data;
+          console.log(data);
+      }
     );
   }
 

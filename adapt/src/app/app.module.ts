@@ -2,6 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { HttpClientModule } from '@angular/common/http'; 
 import { HttpModule} from '@angular/http';
 
 import { MyApp } from './app.component';
@@ -18,6 +19,7 @@ import { ChecklistPage } from './../pages/myChecklist/my-checklist';
 import { MyProfileTabsPage } from './../pages/my-profile-tabs/my-profile';
 import { RecommendationsPage } from './../pages/getRecommendations/get-recommendations';
 import { HousesPage } from './../pages/houses/houses';
+import { HousesProvider } from '../providers/houses';
 
 
 @NgModule({
@@ -37,6 +39,7 @@ import { HousesPage } from './../pages/houses/houses';
   imports: [
     HttpModule,
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -56,6 +59,7 @@ import { HousesPage } from './../pages/houses/houses';
   providers: [
     StatusBar,
     SplashScreen,
+    HousesProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
