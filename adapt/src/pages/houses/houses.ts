@@ -5,7 +5,8 @@ import { HouseDetailTabsPage } from './../house-detail-tabs/house-detail-tabs';
 
 @Component({
   selector: 'page-houses',
-  templateUrl: 'houses.html'
+  templateUrl: 'houses.html',
+  providers: HousesProvider
 })
 export class HousesPage {
 
@@ -21,7 +22,11 @@ export class HousesPage {
       });
     }
 
-    this.housesProvider.getHouses(this.userID).subscribe(
+    this.housesProvider.getHouses(this.userID)
+    .subscribe( data=> {
+
+        console.log(data);
+    }
     );
   }
 
