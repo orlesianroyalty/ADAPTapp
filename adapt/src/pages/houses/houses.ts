@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-
-
+import {HousesProvider} from './../../providers/houses'
 import { HouseDetailTabsPage } from './../house-detail-tabs/house-detail-tabs';
 
 @Component({
@@ -10,18 +9,20 @@ import { HouseDetailTabsPage } from './../house-detail-tabs/house-detail-tabs';
 })
 export class HousesPage {
 
+  userID: String = "";
+  houses: Array<{name: string}>;
 
-  houses: Array<{name: string, houseID: string}>;
-
-  constructor(public navCtrl: NavController) {
-
+  constructor(public navCtrl: NavController, public housesProvider: HousesProvider) {
+    this.userID = '123';
     this.houses = [];
     for (let i = 1; i < 11; i++) {
       this.houses.push({
-        name: "house" + i,
-        houseID: "" + i
+        name: "house" + i
       });
     }
+
+    this.housesProvider.getHouses(this.userID).subscribe(
+    );
   }
 
 

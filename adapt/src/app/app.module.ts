@@ -1,19 +1,24 @@
-import { ResidentsPage } from './../pages/residents/residents';
-import { ChecklistPage } from './../pages/myChecklist/my-checklist';
-import { MyProfileTabsPage } from './../pages/my-profile-tabs/my-profile';
-import { RecommendationsPage } from './../pages/getRecommendations/get-recommendations';
-import { HousesPage } from './../pages/houses/houses';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { HttpModule} from '@angular/http';
+
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+
 import { TipsPage } from '../pages/tips/tips';
 import { RoomsPage } from '../pages/rooms/rooms';
 import { HouseDetailTabsPage } from '../pages/house-detail-tabs/house-detail-tabs';
+import { ResidentsPage } from './../pages/residents/residents';
+import { ChecklistPage } from './../pages/myChecklist/my-checklist';
+import { MyProfileTabsPage } from './../pages/my-profile-tabs/my-profile';
+import { RecommendationsPage } from './../pages/getRecommendations/get-recommendations';
+import { HousesPage } from './../pages/houses/houses';
+
 
 @NgModule({
   declarations: [
@@ -30,6 +35,7 @@ import { HouseDetailTabsPage } from '../pages/house-detail-tabs/house-detail-tab
     HouseDetailTabsPage,
   ],
   imports: [
+    HttpModule,
     BrowserModule,
     IonicModule.forRoot(MyApp),
   ],
