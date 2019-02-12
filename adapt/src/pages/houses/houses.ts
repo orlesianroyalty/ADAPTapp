@@ -13,7 +13,7 @@ export class HousesPage {
 
   constructor(public navCtrl: NavController, public housesProvider: HousesProvider) {
     this.userID = '123';
-    this.houses = [];
+    this.houses = [{name:"My House", residents:2}, {name:"Another House", residents: 4}];
 
     this.housesProvider.getHouses(this.userID)
       .then( data => {
@@ -24,7 +24,7 @@ export class HousesPage {
   }
 
 
-  goToHouseDetail(event, house) {
+  goToHouseDetail(house) {
     this.navCtrl.push(HouseDetailTabsPage, {
       house: house
     });

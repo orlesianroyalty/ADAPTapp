@@ -1,0 +1,25 @@
+page-houses {
+    .house-div {
+        border-radius: 3px; 
+        border-top: 1px solid orange; 
+        border-bottom: 1px solid orange;
+        margin-bottom:10px;
+        padding-bottom:10px;
+    }
+    .house-buttons {
+        height:30px; 
+        width:30px; 
+        float:right
+    }
+    .label-name {
+        color: orange;
+        font-size: 14pt;
+    }
+    .col-info {
+        color: gray;
+    }
+    .col-house-info {
+        text-align: right;
+        color: gray;
+    }
+}

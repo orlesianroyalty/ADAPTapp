@@ -1,0 +1,50 @@
+<ion-header>
+        <ion-toolbar>
+          <ion-title>
+            Create a Resident
+          </ion-title>
+          <ion-buttons start>
+            <button ion-button (click)="dismiss()">
+              <span ion-text color="primary" showWhen="ios">Cancel</span>
+            </button>
+          </ion-buttons>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content padding>
+        <div>Resident Name</div>
+        <ion-item class="item-box">
+           <ion-label>Name</ion-label>
+           <ion-input type="text" value="" [ngModel]="newRes.name"></ion-input>
+        </ion-item>
+        <br>
+        <div>Resident Age</div>
+        <ion-item class="item-box">
+          <ion-label>Age</ion-label>
+          <ion-input type="number" value="" [ngModel]="newRes.age"></ion-input>
+        </ion-item>
+        <br>
+        <div>Resident Physical Concern(s)</div>
+        <ion-item class="item-box">
+          <ion-label>Physical Concern(s)</ion-label>
+          <ion-select *ngFor="let con of physConcerns" multiple="true" [ngModel]="newRes.physicalConcerns">
+            <ion-option value="con">{{con}}</ion-option>
+          </ion-select>
+        </ion-item>
+        <br>
+        <div>Resident Income</div>
+        <ion-item class="item-box">
+          <ion-label>Income</ion-label>
+          <ion-select *ngFor="let income of incomes" [ngModel]="newRes.income">
+            <ion-option value="income">{{income}}}</ion-option>
+          </ion-select>
+        </ion-item>
+        <br>
+        <div>Resident State</div>
+        <ion-item class="item-box">
+          <ion-label>State</ion-label>
+          <ion-select *ngFor="let state of states" [ngModel]="newRes.state">
+            <ion-option value="state">{{state}}</ion-option>
+          </ion-select>
+        </ion-item>
+        <button ion-button class="submit-button" (click)="create()">Save</button>
+    </ion-content>

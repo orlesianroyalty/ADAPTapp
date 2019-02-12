@@ -6,10 +6,52 @@
     <ion-title>Rooms</ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content>
+<ion-content padding>
 
-    <ion-list>
-      <button ion-item *ngFor="let room of rooms" >
+    <!--<ion-list>-->
+      <div>
+        <div class="box-label">
+          Bedrooms 
+          <ion-icon *ngIf="hideBedrooms" name="arrow-dropdown-circle" (click)="hideBedrooms = !hideBedrooms" class="icon"></ion-icon>
+          <ion-icon *ngIf="!hideBedrooms" name="arrow-dropup-circle" (click)="hideBedrooms = !hideBedrooms" class="icon"></ion-icon>
+          <ion-icon name="add-circle" (click)="createRoom()"></ion-icon>
+        </div>
+        <ion-item *ngIf="!hideBedrooms">
+          <!--
+            <ion-icon name="create"></ion-icon>
+            <ion-icon name="trash"></ion-icon>
+          -->
+        </ion-item>
+      </div>
+
+      <br>
+
+      <div>
+        <div class="box-label">
+          Bathrooms
+          <ion-icon *ngIf="hideBathrooms" name="arrow-dropdown-circle" (click)="hideBathrooms = !hideBathrooms" class="icon"></ion-icon>
+          <ion-icon *ngIf="!hideBathrooms" name="arrow-dropup-circle" (click)="hideBathrooms = !hideBathrooms" class="icon"></ion-icon>
+          <ion-icon name="add-circle" (click)="createRoom()"></ion-icon>
+        </div>
+        <ion-item *ngIf="!hideBathrooms">
+
+        </ion-item>
+      </div>
+
+      <br>
+
+      <div>
+        <div class="box-label">
+          Kitchens
+          <ion-icon *ngIf="hideKitchens" name="arrow-dropdown-circle" (click)="hideKitchens = !hideKitchens" class="icon"></ion-icon>
+          <ion-icon *ngIf="!hideKitchens" name="arrow-dropup-circle" (click)="hideKitchens = !hideKitchens" class="icon"></ion-icon>
+          <ion-icon name="add-circle" (click)="createRoom()"></ion-icon>
+        </div>
+        <ion-item *ngIf="!hideKitchens">
+
+        </ion-item>
+      </div>
+     <!--<button ion-item *ngFor="let room of rooms" >
 
         {{room.name}} - {{room.type}}
         <div item-end>
@@ -17,10 +59,12 @@
           <button ion-button>Delete</button>
         </div>
       </button>
-    </ion-list>
+    </ion-list>-->  
 
-    <ion-fab bottom end slot="fixed">
+    <!--
+      <ion-fab bottom end slot="fixed">
 
        <button ion-fab fab-fixed color="primary"  ><ion-icon name="add"></ion-icon></button>
     </ion-fab>
+    -->
 </ion-content>

@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>
+        Create a Room
+      </ion-title>
+      <ion-buttons start>
+        <button ion-button (click)="dismiss()">
+          <span ion-text color="primary" showWhen="ios">Cancel</span>
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content padding>
+    <div>Room Type</div>
+    <ion-item class="item-box">
+        <ion-label>Room Type</ion-label>
+        <ion-select [ngModel]="newRoom.type">
+                <ion-option *ngFor=" let room of roomTypes" [value]="room">{{room}}</ion-option>
+        </ion-select>
+    </ion-item>
+    <br>
+    <div>Room Name</div>
+    <ion-item class="item-box">
+       <ion-label>Room Name</ion-label>
+       <ion-input type="text" value="" [ngModel]="newRoom.name"></ion-input>
+    </ion-item>
+    <br>
+    <button ion-button class="submit-button" (click)="create()">Save</button>
+</ion-content>
