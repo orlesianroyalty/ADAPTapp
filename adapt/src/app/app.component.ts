@@ -29,7 +29,7 @@ export class MyApp {
       { title: 'My Profile', component: MyProfileTabsPage },
       { title: 'Get Recommendations', component: RecommendationsPage},
       { title: 'Get Tips', component: TipsPage},
-      { title: 'My Checklist', component: ChecklistPage}
+      { title: 'My Checklist', component: ChecklistPage},
     ];
 
   }

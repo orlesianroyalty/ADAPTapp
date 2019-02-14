@@ -19,6 +19,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { TipsPage } from '../pages/tips/tips';
 import { RoomsPage } from '../pages/rooms/rooms';
 import { HouseDetailTabsPage } from '../pages/house-detail-tabs/house-detail-tabs';
+import { SavedTipsPage } from '../pages/savedTips/saved-tips';
+import { SavedRecommendsPage } from '../pages/savedRecommendations/saved-recommends';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -33,7 +36,9 @@ import { HouseDetailTabsPage } from '../pages/house-detail-tabs/house-detail-tab
     ResidentsPage,
     HouseDetailTabsPage,
     CreateRoomPage,
-    CreateResidentPage
+    CreateResidentPage,
+    SavedTipsPage,
+    SavedRecommendsPage
   ],
   imports: [
     BrowserModule,
@@ -54,7 +59,9 @@ import { HouseDetailTabsPage } from '../pages/house-detail-tabs/house-detail-tab
     ResidentsPage,
     HouseDetailTabsPage,
     CreateRoomPage,
-    CreateResidentPage
+    CreateResidentPage,
+    SavedTipsPage,
+    SavedRecommendsPage
   ],
   providers: [
     StatusBar,
