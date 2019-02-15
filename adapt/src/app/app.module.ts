@@ -21,6 +21,7 @@ import { RoomsPage } from '../pages/rooms/rooms';
 import { HouseDetailTabsPage } from '../pages/house-detail-tabs/house-detail-tabs';
 import { SavedTipsPage } from '../pages/savedTips/saved-tips';
 import { SavedRecommendsPage } from '../pages/savedRecommendations/saved-recommends';
+import { SavedPage } from '../pages/saved/saved';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { SavedRecommendsPage } from '../pages/savedRecommendations/saved-recomme
     CreateRoomPage,
     CreateResidentPage,
     SavedTipsPage,
-    SavedRecommendsPage
+    SavedRecommendsPage,
+    SavedPage
   ],
   imports: [
     BrowserModule,
@@ -61,7 +63,8 @@ import { SavedRecommendsPage } from '../pages/savedRecommendations/saved-recomme
     CreateRoomPage,
     CreateResidentPage,
     SavedTipsPage,
-    SavedRecommendsPage
+    SavedRecommendsPage,
+    SavedPage
   ],
   providers: [
     StatusBar,

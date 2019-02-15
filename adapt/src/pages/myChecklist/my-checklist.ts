@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { SavedTipsPage } from './../savedTips/saved-tips';
-import { SavedRecommendsPage } from './../savedRecommendations/saved-recommends';
+import { SavedPage } from '../saved/saved';
 
 @Component({
   selector: 'page-checklist',
@@ -9,16 +8,20 @@ import { SavedRecommendsPage } from './../savedRecommendations/saved-recommends'
 })
 export class ChecklistPage {
 
+  houses: Array<{name: string, houseID: number}>;
+  houseSelected: String;
   constructor(public navCtrl: NavController) {
-
+    this.houses = [];
+    for (let i = 1; i < 11; i++) {
+      this.houses.push({
+        name: "house" + i,
+        houseID: i
+      });
+    }
   }
 
-  goToSavedTipsPage() {
-    this.navCtrl.push(SavedTipsPage);
-  }
-
-  goToSavedRecommendsPage() {
-    this.navCtrl.push(SavedTipsPage);
+  goToSavedPage() {
+    this.navCtrl.push(SavedPage);
   }
 
 }
