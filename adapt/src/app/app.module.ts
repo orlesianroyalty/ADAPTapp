@@ -1,3 +1,4 @@
+import { CreateHousePage } from './../pages/create-house/create-house';
 import { HousesProvider } from './../providers/houses';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
@@ -22,7 +23,6 @@ import { HouseDetailTabsPage } from '../pages/house-detail-tabs/house-detail-tab
 import { SavedTipsPage } from '../pages/savedTips/saved-tips';
 import { SavedRecommendsPage } from '../pages/savedRecommendations/saved-recommends';
 import { SavedPage } from '../pages/saved/saved';
-
 @NgModule({
   declarations: [
     MyApp,
@@ -40,7 +40,8 @@ import { SavedPage } from '../pages/saved/saved';
     CreateResidentPage,
     SavedTipsPage,
     SavedRecommendsPage,
-    SavedPage
+    SavedPage,
+    CreateHousePage
   ],
   imports: [
     BrowserModule,
@@ -64,7 +65,8 @@ import { SavedPage } from '../pages/saved/saved';
     CreateResidentPage,
     SavedTipsPage,
     SavedRecommendsPage,
-    SavedPage
+    SavedPage,
+    CreateHousePage
   ],
   providers: [
     StatusBar,

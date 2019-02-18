@@ -1,0 +1,21 @@
+<ion-header>
+        <ion-toolbar>
+          <ion-title>
+            Create a Room
+          </ion-title>
+          <ion-buttons start>
+            <button ion-button (click)="dismiss()">
+              <span ion-text color="primary" showWhen="ios">Cancel</span>
+            </button>
+          </ion-buttons>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content padding>
+        <div>House Name</div>
+        <ion-item class="item-box">
+           <ion-label> Name</ion-label>
+           <ion-input type="text" value="" [ngModel]="newHouse.name"></ion-input>
+        </ion-item>
+        <br>
+        <button ion-button class="submit-button" (click)="create()">Save</button>
+    </ion-content>

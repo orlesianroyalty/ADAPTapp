@@ -1,5 +1,6 @@
+import { CreateHousePage } from './../create-house/create-house';
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ModalController } from 'ionic-angular';
 import {HousesProvider} from './../../providers/houses'
 import { HouseDetailTabsPage } from './../house-detail-tabs/house-detail-tabs';
 
@@ -11,7 +12,7 @@ export class HousesPage {
   houses: any;
   userID: String = "";
 
-  constructor(public navCtrl: NavController, public housesProvider: HousesProvider) {
+  constructor(public navCtrl: NavController, public housesProvider: HousesProvider, public modalCtrl: ModalController) {
     this.userID = '123';
     this.houses = [{name:"My House", residents:2}, {name:"Another House", residents: 4}];
 
@@ -21,6 +22,11 @@ export class HousesPage {
           console.log(data);
       }
     );
+  }
+
+  goToCreate() {
+    const modal = this.modalCtrl.create(CreateHousePage);
+    modal.present();
   }
 
 

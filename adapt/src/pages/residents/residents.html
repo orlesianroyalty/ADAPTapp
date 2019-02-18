@@ -7,6 +7,15 @@
     </ion-navbar>
   </ion-header>
   <ion-content>
+      <div>
+          <ion-row>
+            <ion-col>
+              <div item-end>
+                <button item-end ion-button (click)="goToCreate()">Create</button>
+              </div>
+            </ion-col>
+          </ion-row>
+         </div>
 
       <ion-list>
         <button ion-item *ngFor="let resident of residents" >
