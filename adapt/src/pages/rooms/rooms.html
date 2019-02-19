@@ -7,11 +7,10 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-
     <!--<ion-list>-->
       <div>
         <div class="box-label">
-          Bedrooms 
+          Bedrooms
           <ion-icon *ngIf="hideBedrooms" name="arrow-dropdown-circle" (click)="hideBedrooms = !hideBedrooms" class="icon"></ion-icon>
           <ion-icon *ngIf="!hideBedrooms" name="arrow-dropup-circle" (click)="hideBedrooms = !hideBedrooms" class="icon"></ion-icon>
           <ion-icon name="add-circle" (click)="createRoom()"></ion-icon>
@@ -41,7 +40,7 @@
       <br>
 
       <div>
-        <div class="box-label">
+        <div class="box-label" (click)="goToRoomDetail()">
           Kitchens
           <ion-icon *ngIf="hideKitchens" name="arrow-dropdown-circle" (click)="hideKitchens = !hideKitchens" class="icon"></ion-icon>
           <ion-icon *ngIf="!hideKitchens" name="arrow-dropup-circle" (click)="hideKitchens = !hideKitchens" class="icon"></ion-icon>
@@ -59,7 +58,7 @@
           <button ion-button>Delete</button>
         </div>
       </button>
-    </ion-list>-->  
+    </ion-list>-->
 
     <!--
       <ion-fab bottom end slot="fixed">

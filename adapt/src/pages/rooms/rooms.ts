@@ -2,6 +2,8 @@ import { CreateRoomPage } from './../create-room/create-room';
 import { Component } from '@angular/core';
 import { NavController, ModalController } from 'ionic-angular';
 
+import {RoomModelPage} from './../room-model/room-model'
+
 @Component({
   selector: 'page-rooms',
   templateUrl: 'rooms.html'
@@ -39,6 +41,11 @@ export class RoomsPage {
 
   createRoom() {
     const modal = this.modalCtrl.create(CreateRoomPage);
+    modal.present();
+  }
+
+  goToRoomDetail() {
+    const modal = this.modalCtrl.create(RoomModelPage);
     modal.present();
   }
 

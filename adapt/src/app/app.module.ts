@@ -23,6 +23,10 @@ import { HouseDetailTabsPage } from '../pages/house-detail-tabs/house-detail-tab
 import { SavedTipsPage } from '../pages/savedTips/saved-tips';
 import { SavedRecommendsPage } from '../pages/savedRecommendations/saved-recommends';
 import { SavedPage } from '../pages/saved/saved';
+import { RoomModelPage} from '../pages/room-model/room-model';
+import { SceneGraph } from '../components/scenegraph/scenegraph';
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -41,7 +45,9 @@ import { SavedPage } from '../pages/saved/saved';
     SavedTipsPage,
     SavedRecommendsPage,
     SavedPage,
-    CreateHousePage
+    CreateHousePage,
+    RoomModelPage,
+    SceneGraph
   ],
   imports: [
     BrowserModule,
@@ -66,7 +72,8 @@ import { SavedPage } from '../pages/saved/saved';
     SavedTipsPage,
     SavedRecommendsPage,
     SavedPage,
-    CreateHousePage
+    CreateHousePage,
+    RoomModelPage
   ],
   providers: [
     StatusBar,
@@ -76,4 +83,3 @@ import { SavedPage } from '../pages/saved/saved';
   ]
 })
 export class AppModule {}
-
