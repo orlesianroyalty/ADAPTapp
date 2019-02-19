@@ -1,7 +1,7 @@
 import { CreateHousePage } from './../create-house/create-house';
 import { Component } from '@angular/core';
 import { NavController, ModalController } from 'ionic-angular';
-import {HousesProvider} from './../../providers/houses'
+import {HousesProvider} from './../../providers/housesService'
 import { HouseDetailTabsPage } from './../house-detail-tabs/house-detail-tabs';
 
 @Component({
