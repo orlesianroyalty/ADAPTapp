@@ -1,3 +1,4 @@
+import { LoginPage } from './../pages/login/login';
 import { CreateHousePage } from './../pages/create-house/create-house';
 import { HousesProvider } from './../providers/houses';
 import { HttpModule } from '@angular/http';
@@ -41,7 +42,8 @@ import { SavedPage } from '../pages/saved/saved';
     SavedTipsPage,
     SavedRecommendsPage,
     SavedPage,
-    CreateHousePage
+    CreateHousePage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -66,7 +68,8 @@ import { SavedPage } from '../pages/saved/saved';
     SavedTipsPage,
     SavedRecommendsPage,
     SavedPage,
-    CreateHousePage
+    CreateHousePage,
+    LoginPage
   ],
   providers: [
     StatusBar,

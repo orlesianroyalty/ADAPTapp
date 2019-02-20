@@ -1,3 +1,4 @@
+import { LoginPage } from './../pages/login/login';
 import { MyProfileTabsPage } from './../pages/my-profile-tabs/my-profile';
 import { TipsPage } from './../pages/tips/tips';
 import { HousesPage } from './../pages/houses/houses';
@@ -16,7 +17,7 @@ import { RecommendationsPage } from '../pages/getRecommendations/get-recommendat
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = LoginPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -30,6 +31,7 @@ export class MyApp {
       { title: 'Get Recommendations', component: RecommendationsPage},
       { title: 'Get Tips', component: TipsPage},
       { title: 'My Checklist', component: ChecklistPage},
+      { title: 'Log Out', component: LoginPage}
     ];
 
   }
@@ -40,6 +42,7 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      this.nav.setRoot(this.rootPage);
     });
   }
 

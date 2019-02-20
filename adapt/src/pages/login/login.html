@@ -1,6 +1,22 @@
 <ion-header></ion-header>
-<ion-content>
+<ion-content padding class="content-container">
+    <div class="container-div" style="padding-top: 200px">
+        <div class="label-div">
+            Username:
+        </div>
+        <ion-item class="input-item">
+            <ion-input></ion-input>
+        </ion-item>
+    </div>
+    <div class="container-div">
+        <div class="label-div">
+            Password:
+        </div>
+        <ion-item class="input-item">
+            <ion-input></ion-input>
+        </ion-item>
+    </div>
     <div>
-        
+        <button ion-button (click)="login()" style="float:right">Log In</button>
     </div>
 </ion-content>
