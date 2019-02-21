@@ -1,4 +1,5 @@
 import { ViewChild, Component } from '@angular/core';
+import { NavController, ModalController } from 'ionic-angular';
 import { SceneGraph } from '../../components/scenegraph/scenegraph'
 
 @Component({
@@ -12,7 +13,7 @@ export class RoomModelPage {
 
   constructor() {}
 
-  ionViewDidEnter() {
+  ionViewDidEnter(public navCtrl: NavController, public modalCtrl: ModalController) {
     this.sceneGraph.startAnimation();
   }
 

@@ -4,11 +4,28 @@ import { NavController, ModalController } from 'ionic-angular';
 
 import {RoomModelPage} from './../room-model/room-model'
 
+
+
+export enum RoomType {
+  Bedroom = 1,
+  Bathroom = 2,
+  Livingroom = 3,
+  Office = 4,
+  Kitchen = 5
+}
+
+
 @Component({
   selector: 'page-rooms',
   templateUrl: 'rooms.html'
 })
+
+
 export class RoomsPage {
+
+
+
+  roomTypes: Array<{type: RoomType, show: boolean}>;
 
   rooms: Array<{name: string, type: string}>;
   hideBedrooms: boolean = true;
@@ -17,6 +34,9 @@ export class RoomsPage {
 
   constructor(public navCtrl: NavController, public modalCtrl: ModalController) {
     this.rooms = [];
+
+
+
   // this.rooms.push({
   //  name: "John's Kitchen",
   // type: 'Kitchen'
@@ -44,9 +64,10 @@ export class RoomsPage {
     modal.present();
   }
 
-  goToRoomDetail() {
-    const modal = this.modalCtrl.create(RoomModelPage);
-    modal.present();
+  goToRoomDetail(selectedRoom) {
+    this.navCtrl.push(RoomModelPage, {
+      room: selectedRoom
+    });
   }
 
   ionViewDidLoad() {

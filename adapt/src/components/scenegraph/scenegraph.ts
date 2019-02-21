@@ -1,5 +1,6 @@
 import { Component, Input, ElementRef } from '@angular/core';
 import * as THREE from 'three';
+import { OrbitControls} from 'three-orbitcontrols-ts'
 
 @Component({
   selector: 'scenegraph',
@@ -15,8 +16,10 @@ export class SceneGraph {
   camera: THREE.Camera;
   mesh: THREE.Mesh;
   animating: boolean;
+  controls = OrbitControls;
 
   constructor(private sceneGraphElement: ElementRef) {
+
   }
 
   ngAfterViewInit() {
@@ -24,7 +27,8 @@ export class SceneGraph {
 
     this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 10000);
     this.camera.position.z = 1000;
-
+    this.controls = new OrbitControls(this.camera);
+    this.controls.enabled = true;
     let geometry;
     switch(this.geometry) {
       case 'box': geometry = new THREE.BoxGeometry(500, 500, 500); break;
@@ -55,10 +59,12 @@ export class SceneGraph {
   }
 
   render() {
-    this.mesh.rotation.x += 0.05;
-    this.mesh.rotation.y += 0.05;
     this.renderer.render(this.scene, this.camera);
-    if (this.animating) { requestAnimationFrame(() => { this.render() }); };
+    if (this.animating) { requestAnimationFrame(() => {
+
+      this.controls.update();
+      this.render()
+     }); };
   }
 
 }
