@@ -1,4 +1,4 @@
-import { Room } from './../../shared/classes';
+import { Room } from './../../shared/roomsclass';
 import { Component } from '@angular/core';
 import { NavController, ViewController } from 'ionic-angular';
 

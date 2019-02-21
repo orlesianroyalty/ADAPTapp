@@ -1,4 +1,4 @@
-import { House } from './../../shared/classes';
+import { House } from './../../shared/housesclass';
 import { CreateRoomPage } from './../create-room/create-room';
 import { Component } from '@angular/core';
 import { NavController, ModalController, ViewController } from 'ionic-angular';

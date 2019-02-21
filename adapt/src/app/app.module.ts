@@ -1,3 +1,4 @@
+import { LoginPage } from './../pages/login/login';
 import { CreateHousePage } from './../pages/create-house/create-house';
 import { HousesProvider } from './../providers/houses';
 import { HttpModule } from '@angular/http';
@@ -51,7 +52,8 @@ import { RecommendsTabsPage } from '../pages/recommends-tabs/recommends-tabs';
     SafetyRecommends,
     MobilityRecommends,
     VisibilityRecommends,
-    RecommendsTabsPage
+    RecommendsTabsPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -81,7 +83,8 @@ import { RecommendsTabsPage } from '../pages/recommends-tabs/recommends-tabs';
     SafetyRecommends,
     MobilityRecommends,
     VisibilityRecommends,
-    RecommendsTabsPage
+    RecommendsTabsPage,
+    LoginPage
   ],
   providers: [
     StatusBar,

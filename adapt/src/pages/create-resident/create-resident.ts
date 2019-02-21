@@ -1,4 +1,4 @@
-import { Resident } from './../../shared/classes';
+import { Resident } from './../../shared/residentsclass';
 import { Component } from '@angular/core';
 import { NavController, ViewController } from 'ionic-angular';
 
