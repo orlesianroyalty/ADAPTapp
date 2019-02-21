@@ -11,7 +11,14 @@ import { RecommendsTabsPage } from '../recommends-tabs/recommends-tabs';
 export class RecommendationsPage {
 
   houses: Array<{name: string, houseID: number}>;
-  houseSelected: String;
+  rooms1 = [
+    "Rain's Kitchen", "Sam's Bedroom", "Michelle's Bathroom", "Seth's Lair", "JR's Study" 
+  ];
+  rooms2 = [
+    "Living Room", "Office", "Stairs", "Game Room", "Conservatory"
+  ];
+  rooms = [];
+  houseSelected: String = "";
   constructor(public navCtrl: NavController) {
     this.houses = [];
     for (let i = 1; i < 11; i++) {
@@ -19,6 +26,15 @@ export class RecommendationsPage {
         name: "house" + i,
         houseID: i
       });
+    }
+  }
+
+  showRooms(houseID: any) {
+    if (houseID == 1){
+      this.rooms = this.rooms1;
+    }
+    if (houseID == 2){
+      this.rooms = this.rooms2;
     }
   }
 
