@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { HouseDetailTabsPage } from './../house-detail-tabs/house-detail-tabs';
+import { RecommendsTabsPage } from '../recommends-tabs/recommends-tabs';
 
 @Component({
   selector: 'page-recommendations',
@@ -23,6 +24,6 @@ export class RecommendationsPage {
 
 
   goToHouseDetail() {
-    this.navCtrl.push(HouseDetailTabsPage);
+    this.navCtrl.push(RecommendsTabsPage);
   }
 }

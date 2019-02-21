@@ -4,6 +4,8 @@ import { MyProfileTabsPage } from './../my-profile-tabs/my-profile';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { TipsPage } from '../tips/tips';
+import { RecommendsPage } from '../recommends/recommends';
+import { RecommendsTabsPage } from '../recommends-tabs/recommends-tabs';
 
 @Component({
   selector: 'page-home',
