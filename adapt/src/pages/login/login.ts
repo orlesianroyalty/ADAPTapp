@@ -1,3 +1,4 @@
+import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { NavController, ModalController } from 'ionic-angular';
 
@@ -7,5 +8,9 @@ import { NavController, ModalController } from 'ionic-angular';
 })
 export class LoginPage {
 
-    constructor() {}
+    constructor(public navCtrl: NavController) {}
+
+    login() {
+      this.navCtrl.setRoot(HomePage);
+    }
 }

@@ -1,3 +1,4 @@
+import { LoginPage } from './../pages/login/login';
 import { CreateHousePage } from './../pages/create-house/create-house';
 import { HousesProvider } from './../providers/houses';
 import { HttpModule } from '@angular/http';
@@ -47,7 +48,8 @@ import { SceneGraph } from '../components/scenegraph/scenegraph';
     SavedPage,
     CreateHousePage,
     RoomModelPage,
-    SceneGraph
+    SceneGraph,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -73,7 +75,8 @@ import { SceneGraph } from '../components/scenegraph/scenegraph';
     SavedRecommendsPage,
     SavedPage,
     CreateHousePage,
-    RoomModelPage
+    RoomModelPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
