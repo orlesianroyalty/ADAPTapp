@@ -23,6 +23,11 @@ import { HouseDetailTabsPage } from '../pages/house-detail-tabs/house-detail-tab
 import { SavedTipsPage } from '../pages/savedTips/saved-tips';
 import { SavedRecommendsPage } from '../pages/savedRecommendations/saved-recommends';
 import { SavedPage } from '../pages/saved/saved';
+import { RecommendsPage } from '../pages/recommends/recommends';
+import { SafetyRecommends } from '../pages/safety-recommends/safety-recommends';
+import { MobilityRecommends } from '../pages/mobility-recommends/mobility-recommends';
+import { VisibilityRecommends } from '../pages/visibility-recommends/visibility-recommends';
+import { RecommendsTabsPage } from '../pages/recommends-tabs/recommends-tabs';
 @NgModule({
   declarations: [
     MyApp,
@@ -41,7 +46,12 @@ import { SavedPage } from '../pages/saved/saved';
     SavedTipsPage,
     SavedRecommendsPage,
     SavedPage,
-    CreateHousePage
+    CreateHousePage,
+    RecommendsPage,
+    SafetyRecommends,
+    MobilityRecommends,
+    VisibilityRecommends,
+    RecommendsTabsPage
   ],
   imports: [
     BrowserModule,
@@ -66,7 +76,12 @@ import { SavedPage } from '../pages/saved/saved';
     SavedTipsPage,
     SavedRecommendsPage,
     SavedPage,
-    CreateHousePage
+    CreateHousePage,
+    RecommendsPage,
+    SafetyRecommends,
+    MobilityRecommends,
+    VisibilityRecommends,
+    RecommendsTabsPage
   ],
   providers: [
     StatusBar,
