@@ -4,17 +4,7 @@ import { NavController, ModalController } from 'ionic-angular';
 import { RecommendsTabsPage } from '../recommends-tabs/recommends-tabs';
 
 import {RoomModelPage} from './../room-model/room-model'
-
-
-
-export enum RoomType {
-  Bedroom = 1,
-  Bathroom = 2,
-  Livingroom = 3,
-  Office = 4,
-  Kitchen = 5
-}
-
+import {RoomType, Room} from './../../shared/roomsclass'
 
 @Component({
   selector: 'page-rooms',
@@ -26,18 +16,30 @@ export class RoomsPage {
 
 
 
-  roomTypes: Array<{type: RoomType, show: boolean}>;
+  roomTypes: Array<{label: string, type: RoomType, show: boolean}>;
 
-  rooms: Array<{name: string, type: string}>;
+  rooms: Array<Room>;
   hideBedrooms: boolean = true;
   hideKitchens: boolean = true;
   hideBathrooms: boolean = true;
 
   constructor(public navCtrl: NavController, public modalCtrl: ModalController) {
     this.rooms = [];
-
-
-
+    this.roomTypes = [];
+    this.roomTypes.push({label:"Bedrooms", type: RoomType.Bedroom, show: true})
+    this.roomTypes.push({label:"bathrooms", type: RoomType.Bathroom, show: true})
+    this.roomTypes.push({label:"LivingRooms", type: RoomType.Livingroom, show: true})
+    this.roomTypes.push({label:"Kitchen", type: RoomType.Kitchen, show: true})
+    var i = 0
+    for(;i < 20; i++) {
+      var room = new Room();
+      room.roomID = i;
+      room.name = "Room " + i;
+      room.type = Math.floor(Math.random() * 5)+1;
+      this.rooms.push(room);
+    }
+    console.log(this.roomTypes);
+    console.log(this.rooms);
   // this.rooms.push({
   //  name: "John's Kitchen",
   // type: 'Kitchen'

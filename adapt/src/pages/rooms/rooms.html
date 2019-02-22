@@ -7,11 +7,20 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-<<<<<<< HEAD
-=======
+  <div *ngFor="let rmType of roomTypes">
+    <div class="box-label">
+      {{rmType.label}}
+      <ion-icon *ngIf="rmType.show" name="arrow-dropdown-circle" (click)="rmType.show = !rmType.show" class="icon"></ion-icon>
+      <ion-icon *ngIf="!rmType.show" name="arrow-dropup-circle" (click)="rmType.show = !rmType.show" class="icon"></ion-icon>
+      <ion-icon name="add-circle" (click)="createRoom()"></ion-icon>
+    </div>
+    <ion-item *ngIf="!rmType.show">
+
+    </ion-item>
+  </div>
 
 
->>>>>>> b7b87bad48baf84c46f7fd2ae9b507ccead8ad51
+
     <!--<ion-list>-->
       <div>
         <div class="box-label">
@@ -71,7 +80,4 @@
        <button ion-fab fab-fixed color="primary"  ><ion-icon name="add"></ion-icon></button>
     </ion-fab>
     -->
-
-  
-
 </ion-content>

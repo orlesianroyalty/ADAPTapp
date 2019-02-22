@@ -1,6 +1,7 @@
 import { Component, Input, ElementRef } from '@angular/core';
 import * as THREE from 'three';
 import { OrbitControls} from 'three-orbitcontrols-ts'
+import  GLTFLoader from 'three-gltf-loader';
 
 @Component({
   selector: 'scenegraph',
@@ -16,7 +17,7 @@ export class SceneGraph {
   camera: THREE.Camera;
   mesh: THREE.Mesh;
   animating: boolean;
-  controls = OrbitControls;
+  controls: OrbitControls;
 
   constructor(private sceneGraphElement: ElementRef) {
 
@@ -26,9 +27,10 @@ export class SceneGraph {
     this.scene = new THREE.Scene();
 
     this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 10000);
-    this.camera.position.z = 1000;
+    this.camera.position.set( 1, 1, 1 );
     this.controls = new OrbitControls(this.camera);
     this.controls.enabled = true;
+    this.controls.enableZoom = true;
     let geometry;
     switch(this.geometry) {
       case 'box': geometry = new THREE.BoxGeometry(500, 500, 500); break;
@@ -39,11 +41,37 @@ export class SceneGraph {
 
     let material = new THREE.MeshBasicMaterial({ color: 0xff0000, wireframe: true });
 
-    this.mesh = new THREE.Mesh(geometry, material);
-    this.scene.add(this.mesh);
-
-    this.renderer = new THREE.WebGLRenderer();
+    //this.mesh = new THREE.Mesh(geometry, material);
+    //this.scene.add(this.mesh);
+    this.loadModel().then((gltfScene) =>{
+      var light = new THREE.AmbientLight( 0x404040 );
+      this.scene.add(gltfScene);
+      this.scene.add(light);
+      this.renderer.render(this.scene, this.camera);
+      console.log("rendered");
+    }).catch(err => {
+      console.log(err);
+    });
+    this.renderer = new THREE.WebGLRenderer({antialias: true, logarithmicDepthBuffer: true});
+    this.renderer.setClearColor (0x000000, 1);
     this.sceneGraphElement.nativeElement.childNodes[0].appendChild(this.renderer.domElement);
+  }
+
+  loadModel(): Promise<object>{
+    return new Promise((resolve, reject) => {
+      var loader = new GLTFLoader();
+      loader.load( 'assets/models/bedroom/scene.gltf', function ( gltf ) {
+          console.log(gltf);
+          resolve(gltf.scene);
+      },
+      function ( xhr ) {
+        console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+      },
+      function ( err ) {
+          reject(err);
+        }
+      );
+    });
   }
 
   startAnimation() {
@@ -61,7 +89,6 @@ export class SceneGraph {
   render() {
     this.renderer.render(this.scene, this.camera);
     if (this.animating) { requestAnimationFrame(() => {
-
       this.controls.update();
       this.render()
      }); };

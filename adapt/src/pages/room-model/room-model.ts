@@ -11,9 +11,11 @@ export class RoomModelPage {
   @ViewChild('scenegraph')
   sceneGraph: SceneGraph;
 
-  constructor() {}
+  constructor(public navCtrl: NavController) {
 
-  ionViewDidEnter(public navCtrl: NavController, public modalCtrl: ModalController) {
+  }
+
+  ionViewDidEnter() {
     this.sceneGraph.startAnimation();
   }
 
