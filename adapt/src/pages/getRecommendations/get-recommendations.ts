@@ -39,7 +39,7 @@ export class RecommendationsPage {
   }
 
 
-  goToHouseDetail() {
+  goToRecommendTabs() {
     this.navCtrl.push(RecommendsTabsPage);
   }
 }

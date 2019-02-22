@@ -15,7 +15,7 @@
   </div>
   <div *ngIf="houseSelected != ''">
       <ion-label>Select Room</ion-label>
-      <ion-select [(ngModel)]="roomSelected" (ngModelChange)="goToHouseDetail()">
+      <ion-select [(ngModel)]="roomSelected" (ngModelChange)="goToRecommendTabs()">
         <ion-option *ngFor="let room of rooms" value="{{room}}">{{room}}</ion-option>
       </ion-select>
     </div>

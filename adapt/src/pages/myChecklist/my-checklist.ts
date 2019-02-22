@@ -9,7 +9,14 @@ import { SavedPage } from '../saved/saved';
 export class ChecklistPage {
 
   houses: Array<{name: string, houseID: number}>;
-  houseSelected: String;
+  rooms1 = [
+    "Rain's Kitchen", "Sam's Bedroom", "Michelle's Bathroom", "Seth's Lair", "JR's Study" 
+  ];
+  rooms2 = [
+    "Living Room", "Office", "Stairs", "Game Room", "Conservatory"
+  ];
+  rooms = [];
+  houseSelected: String = "";
   constructor(public navCtrl: NavController) {
     this.houses = [];
     for (let i = 1; i < 11; i++) {
@@ -17,6 +24,15 @@ export class ChecklistPage {
         name: "house" + i,
         houseID: i
       });
+    }
+  }
+
+  showRooms(houseID: any) {
+    if (houseID == 1){
+      this.rooms = this.rooms1;
+    }
+    if (houseID == 2){
+      this.rooms = this.rooms2;
     }
   }
 
