@@ -1,6 +1,7 @@
 import { CreateRoomPage } from './../create-room/create-room';
 import { Component } from '@angular/core';
 import { NavController, ModalController } from 'ionic-angular';
+import { RecommendsTabsPage } from '../recommends-tabs/recommends-tabs';
 
 import {RoomModelPage} from './../room-model/room-model'
 
@@ -73,5 +74,7 @@ export class RoomsPage {
   ionViewDidLoad() {
     //do the setups here for view did load
   }
+
+
 
 }
