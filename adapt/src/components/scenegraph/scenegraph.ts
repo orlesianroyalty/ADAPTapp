@@ -2,6 +2,7 @@ import { Component, Input, ElementRef } from '@angular/core';
 import * as THREE from 'three';
 import { OrbitControls} from 'three-orbitcontrols-ts'
 import  GLTFLoader from 'three-gltf-loader';
+import { Object3D } from 'three';
 
 @Component({
   selector: 'scenegraph',
@@ -27,7 +28,7 @@ export class SceneGraph {
     this.scene = new THREE.Scene();
 
     this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 10000);
-    this.camera.position.set( 1, 1, 1 );
+    this.camera.position.set( 1, 1, 1  );
     this.controls = new OrbitControls(this.camera);
     this.controls.enabled = true;
     this.controls.enableZoom = true;
@@ -53,13 +54,13 @@ export class SceneGraph {
       console.log(err);
     });
     this.renderer = new THREE.WebGLRenderer({antialias: true, logarithmicDepthBuffer: true});
-    this.renderer.setClearColor (0x000000, 1);
     this.sceneGraphElement.nativeElement.childNodes[0].appendChild(this.renderer.domElement);
   }
 
-  loadModel(): Promise<object>{
+  loadModel(): Promise<Object3D>{
     return new Promise((resolve, reject) => {
       var loader = new GLTFLoader();
+      loader.setResourcePath('assets/models/bedroom/');
       loader.load( 'assets/models/bedroom/scene.gltf', function ( gltf ) {
           console.log(gltf);
           resolve(gltf.scene);
