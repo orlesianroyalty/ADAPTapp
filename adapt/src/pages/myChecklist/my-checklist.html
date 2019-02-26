@@ -1,15 +1,22 @@
 <ion-header>
-    <ion-navbar>
-      <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
-      <ion-title>My Checklist</ion-title>
-    </ion-navbar>
-  </ion-header>
-
-  <ion-content>
-        <ion-label>Select House</ion-label>
-          <ion-select [(ngModel)]="houseSelected" (ngModelChange)="goToSavedPage()">
-            <ion-option *ngFor="let house of houses" value="{{house.houseID}}">{{house.name}}</ion-option>
-        </ion-select>
-  </ion-content>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My Checklist</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div>
+  <ion-label>Select House</ion-label>
+  <ion-select [(ngModel)]="houseSelected" (ionChange)="showRooms(houseSelected)">
+    <ion-option *ngFor="let house of houses" value="{{house.houseID}}">{{house.name}}</ion-option>
+  </ion-select>
+</div>
+<div *ngIf="houseSelected != ''">
+    <ion-label>Select Room</ion-label>
+    <ion-select [(ngModel)]="roomSelected" (ngModelChange)="goToSavedPage()">
+      <ion-option *ngFor="let room of rooms" value="{{room}}">{{room}}</ion-option>
+    </ion-select>
+  </div>
+</ion-content>
