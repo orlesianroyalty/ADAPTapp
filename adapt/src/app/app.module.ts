@@ -29,6 +29,7 @@ import { SafetyRecommends } from '../pages/safety-recommends/safety-recommends';
 import { MobilityRecommends } from '../pages/mobility-recommends/mobility-recommends';
 import { VisibilityRecommends } from '../pages/visibility-recommends/visibility-recommends';
 import { RecommendsTabsPage } from '../pages/recommends-tabs/recommends-tabs';
+import { VideosPage } from '../pages/videos/videos';
 @NgModule({
   declarations: [
     MyApp,
@@ -53,6 +54,7 @@ import { RecommendsTabsPage } from '../pages/recommends-tabs/recommends-tabs';
     MobilityRecommends,
     VisibilityRecommends,
     RecommendsTabsPage,
+    VideosPage,
     LoginPage
   ],
   imports: [
@@ -84,6 +86,7 @@ import { RecommendsTabsPage } from '../pages/recommends-tabs/recommends-tabs';
     MobilityRecommends,
     VisibilityRecommends,
     RecommendsTabsPage,
+    VideosPage,
     LoginPage
   ],
   providers: [
@@ -94,4 +97,3 @@ import { RecommendsTabsPage } from '../pages/recommends-tabs/recommends-tabs';
   ]
 })
 export class AppModule {}
-
