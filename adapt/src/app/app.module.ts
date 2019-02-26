@@ -1,6 +1,6 @@
 import { LoginPage } from './../pages/login/login';
 import { CreateHousePage } from './../pages/create-house/create-house';
-import { HousesProvider } from './../providers/houses';
+import { HousesProvider } from './../providers/housesService';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { CreateResidentPage } from './../pages/create-resident/create-resident';
