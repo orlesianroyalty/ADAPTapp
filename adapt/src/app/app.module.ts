@@ -1,6 +1,6 @@
 import { LoginPage } from './../pages/login/login';
 import { CreateHousePage } from './../pages/create-house/create-house';
-import { HousesProvider } from './../providers/houses';
+import { HousesProvider } from './../providers/housesService';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { CreateResidentPage } from './../pages/create-resident/create-resident';
@@ -31,7 +31,7 @@ import { VisibilityRecommends } from '../pages/visibility-recommends/visibility-
 import { RecommendsTabsPage } from '../pages/recommends-tabs/recommends-tabs';
 import { RoomModelPage} from '../pages/room-model/room-model';
 import { SceneGraph } from '../components/scenegraph/scenegraph';
-
+import { VideosPage } from '../pages/videos/videos';
 @NgModule({
   declarations: [
     MyApp,
@@ -58,6 +58,7 @@ import { SceneGraph } from '../components/scenegraph/scenegraph';
     RecommendsTabsPage,
     RoomModelPage,
     SceneGraph,
+    VideosPage,
     LoginPage
   ],
   imports: [
@@ -90,6 +91,7 @@ import { SceneGraph } from '../components/scenegraph/scenegraph';
     VisibilityRecommends,
     RecommendsTabsPage,
     RoomModelPage,
+    VideosPage,
     LoginPage
   ],
   providers: [

@@ -11,6 +11,9 @@ export enum RoomType {
 export class Room {
     roomID: number = -1;
     name: string = "";
+
     type: RoomType = 1;
+    description: string = "";
+    id: Number = 0;
     constructor() {}
 }
