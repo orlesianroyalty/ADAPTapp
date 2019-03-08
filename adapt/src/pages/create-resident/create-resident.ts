@@ -1,24 +1,34 @@
 import { Resident } from './../../shared/residentsclass';
-import { Component } from '@angular/core';
+import { Component , Input } from '@angular/core';
 import { NavController, ViewController } from 'ionic-angular';
+import { ResidentProvider } from '../../providers/residentService' 
 
 
 @Component({
   selector: 'page-resident-create',
   templateUrl: 'create-resident.html' 
 })
+//TODO: create enum for the physical concerns, then create a drop down
+//in html to map this enum type and enable multi select
 export class CreateResidentPage {
+    
+    @Input() userID: number;
     newRes: Resident;
-    physConcerns: any[];
-    incomes: string[];
-    states: string[];
+    physConcerns: Array<{label: string, value: number}>;
+    incomes : Array<{label: string, value: number}>;
+    states: String[];
 
-  constructor(public navCtrl: NavController, public viewCtrl:ViewController) {
+  constructor(public navCtrl: NavController,public residentProvider: ResidentProvider,  public viewCtrl:ViewController) {
     this.instantiateNewVars();
+    
   }
 
   create() {
-      this.dismiss();
+    this.residentProvider.create(this.userID, this.newRes)
+     .then( data => {
+      console.log(data);
+    });
+    this.dismiss();
   }
 
   dismiss() {
@@ -35,8 +45,12 @@ export class CreateResidentPage {
    */
   instantiateNewVars() {
     this.newRes = new Resident();
-    this.physConcerns = [];
-    this.incomes = [];
-    this.states = [];
+    this.states = ["Alabama", "Georgia", "Tennessee", "Florida"];
+    this.incomes = [{label: "<30k", value: 0},
+                    {label: "30k~60k", value: 1},
+                    {label: "60k+", value: 2}];
+    this.physConcerns = [{label: "Wheelchair", value: 0},
+                    {label: "Blindness", value: 1},
+                    {label: "Manual Dexterity", value: 2}];
   }
 }

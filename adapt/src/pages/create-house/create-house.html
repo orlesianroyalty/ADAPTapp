@@ -14,7 +14,7 @@
         <div>House Name</div>
         <ion-item class="item-box">
            <ion-label> Name</ion-label>
-           <ion-input type="text" value="" [ngModel]="newHouse.name"></ion-input>
+           <ion-input type="text" placeholder="eg, Dad's Beach house" value="" [(ngModel)]="newHouse.name"></ion-input>
         </ion-item>
         <br>
         <button ion-button class="submit-button" (click)="create()">Save</button>
