@@ -13,32 +13,32 @@
     <ion-content padding>
         <div>Resident Name</div>
         <ion-item class="item-box">
-           <ion-input type="text" value="" [ngModel]="newRes.name"></ion-input>
+           <ion-input type="text" value="" [(ngModel)]="newRes.name"></ion-input>
         </ion-item>
         <br>
         <div>Resident Age</div>
         <ion-item class="item-box">
-          <ion-input type="number" value="" [ngModel]="newRes.age"></ion-input>
+          <ion-input type="number" value=18 [(ngModel)]="newRes.age"></ion-input>
         </ion-item>
         <br>
         <div>Resident Physical Concern(s)</div>
         <ion-item class="item-box">
-          <ion-select *ngFor="let con of physConcerns" multiple="true" [ngModel]="newRes.physicalConcerns">
-            <ion-option value="con">{{con}}</ion-option>
+          <ion-select multiple="true" [(ngModel)]="newRes.physicalConcerns">
+            <ion-option *ngFor="let con of physConcerns, let  i = index" value={{i}}>{{con}}</ion-option>
           </ion-select>
         </ion-item>
         <br>
         <div>Resident Income</div>
         <ion-item class="item-box">
-          <ion-select *ngFor="let income of incomes" [ngModel]="newRes.income">
-            <ion-option value="income">{{income}}}</ion-option>
+          <ion-select [(ngModel)]="newRes.income" okText="Okay" cancelText="Dismiss">
+            <ion-option  *ngFor="let income of incomes, let i = index" value={{i}}>{{income}}</ion-option>
           </ion-select>
         </ion-item>
         <br>
         <div>Resident State</div>
         <ion-item class="item-box">
-          <ion-select *ngFor="let state of states" [ngModel]="newRes.state">
-            <ion-option value="state">{{state}}</ion-option>
+          <ion-select  [(ngModel)]="newRes.state" okText="Okay" cancelText="Dismiss">
+            <ion-option *ngFor="let state of states" value="{{state}}">{{state}}</ion-option>
           </ion-select>
         </ion-item>
         <button ion-button class="submit-button" (click)="create()">Save</button>

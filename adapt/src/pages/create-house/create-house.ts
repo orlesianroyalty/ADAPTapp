@@ -1,19 +1,27 @@
 import { House } from './../../shared/housesclass';
-import { CreateRoomPage } from './../create-room/create-room';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { NavController, ModalController, ViewController } from 'ionic-angular';
+import {HousesProvider} from './../../providers/housesService'
 
 @Component({
   selector: 'page-create-house',
   templateUrl: 'create-house.html'
 })
 export class CreateHousePage {
-    newHouse: House
-  constructor(public navCtrl: NavController, public modalCtrl: ModalController, public viewCtrl: ViewController) {
+    newHouse: House;
+    @Input() userID: number;
+
+  constructor(public navCtrl: NavController, public housesProvider: HousesProvider, public modalCtrl: ModalController, public viewCtrl: ViewController) {
     this.newHouse = new House();
   }
 
   create() {
+    console.log(this.newHouse)
+    this.housesProvider.create(this.userID, this.newHouse)
+      .then( data => {
+          console.log(data);
+      }
+    );
     this.dismiss();
   }
 
@@ -25,6 +33,6 @@ export class CreateHousePage {
 
   dismiss() {
     this.viewCtrl.dismiss();
-}
+  }
 
 }

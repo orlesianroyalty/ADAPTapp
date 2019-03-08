@@ -7,6 +7,8 @@ import { NavController, ViewController } from 'ionic-angular';
   selector: 'page-resident-create',
   templateUrl: 'create-resident.html' 
 })
+//TODO: create enum for the physical concerns, then create a drop down
+//in html to map this enum type and enable multi select
 export class CreateResidentPage {
     newRes: Resident;
     physConcerns: any[];
@@ -18,7 +20,8 @@ export class CreateResidentPage {
   }
 
   create() {
-      this.dismiss();
+    console.log(this.newRes);
+    this.dismiss();
   }
 
   dismiss() {
@@ -35,8 +38,8 @@ export class CreateResidentPage {
    */
   instantiateNewVars() {
     this.newRes = new Resident();
-    this.physConcerns = [];
-    this.incomes = [];
-    this.states = [];
+    this.physConcerns = ["Wheelchair", "Blindness", "Manual Dexterity"];
+    this.incomes = ["<30k", "30k~60k", "60k+"];
+    this.states = ["Alabama", "Georgia", "Tennessee"];
   }
 }

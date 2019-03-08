@@ -3,29 +3,43 @@ import { Component } from '@angular/core';
 import { NavController, ModalController } from 'ionic-angular';
 import {HousesProvider} from './../../providers/housesService'
 import { HouseDetailTabsPage } from './../house-detail-tabs/house-detail-tabs';
+import { House } from './../../shared/housesclass'
 
 @Component({
   selector: 'page-houses',
   templateUrl: 'houses.html'
 })
 export class HousesPage {
-  houses: any;
-  userID: String = "";
+  houses: House[];
+  userID: number;
 
   constructor(public navCtrl: NavController, public housesProvider: HousesProvider, public modalCtrl: ModalController) {
-    this.userID = '123';
-    this.houses = [{name:"My House", residents:2}, {name:"Another House", residents: 4}];
+    this.userID = 1;
+  }
 
+  ionViewWillEnter(){
+    console.log("hello");
+    this.getHouses();
+  }
+
+  getHouses(){
     this.housesProvider.getHouses(this.userID)
-      .then( data => {
-          this.houses = data;
-          console.log(data);
-      }
+    .then( data  => {
+        this.houses = data;
+        console.log(data);
+    }
     );
   }
 
   goToCreate() {
-    const modal = this.modalCtrl.create(CreateHousePage);
+    const modal = this.modalCtrl.create(
+      CreateHousePage,
+       {'userID': this.userID}
+    );
+    modal.onDidDismiss(data => {
+      this.getHouses();
+      //console.log(data);
+    });
     modal.present();
   }
 
