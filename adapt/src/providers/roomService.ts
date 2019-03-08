@@ -1,21 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
+import { SERVER_URL } from '../shared/environment';
 
 
 @Injectable()
 
 export class RoomsProvider {
 
-    private apiUrl = 'http://localhost:8080/api/';
-    private houseEndpoint = this.apiUrl+'houses';
+    private apiUrl = SERVER_URL + '/api/';
+    private roomEndpoint= this.apiUrl+'rooms/';
 
 	constructor(public http: HttpClient) {
     }
 
     getRooms(houseID: number) {
         return new Promise(resolve => {
-          this.http.get(this.apiUrl+houseID +'/rooms').subscribe(data => {
+          this.http.get(this.roomEndpoint + houseID + "/house").subscribe(data => {
             
             resolve(data);
           }, err => {

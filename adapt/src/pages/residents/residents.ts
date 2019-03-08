@@ -27,20 +27,27 @@ export class ResidentsPage {
 
 
   ionViewWillEnter(){
-    //this.getResidents();
+    this.getResidents();
   }
 
   getResidents(){
     this.residentProvider.getResidents(this.userID)
     .then( data  => {
-        //this.residentsObjects = data;
+        this.residentsObjects = data;
         console.log(data);
-    }
-    );
+    });
   }
 
   goToCreate() {
-    const modal = this.modalCtrl.create(CreateResidentPage);
+
+    const modal = this.modalCtrl.create(
+      CreateResidentPage,
+       {'userID': this.userID}
+    );
+    modal.onDidDismiss(data => {
+      this.getResidents();
+      //console.log(data);
+    });
     modal.present();
   }
 

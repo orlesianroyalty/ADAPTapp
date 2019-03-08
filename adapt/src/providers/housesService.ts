@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { House } from '../shared/housesclass';
+import { SERVER_URL } from '../shared/environment';
 
 @Injectable()
 
 export class HousesProvider {
 
-    private apiUrl = 'http://localhost:8080/api/';
+    private apiUrl = SERVER_URL + '/api/';
     private houseEndpoint = this.apiUrl+'houses';
 
 	constructor(public http: HttpClient) {
