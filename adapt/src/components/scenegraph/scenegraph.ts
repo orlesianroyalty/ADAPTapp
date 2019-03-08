@@ -60,8 +60,8 @@ export class SceneGraph {
   loadModel(): Promise<Object3D>{
     return new Promise((resolve, reject) => {
       var loader = new GLTFLoader();
-      loader.setResourcePath('assets/models/bedroom/');
-      loader.load( 'assets/models/bedroom/scene.gltf', function ( gltf ) {
+      loader.setResourcePath('assets/imgs/models/bedroom/');
+      loader.load( 'assets/imgs/models/bedroom/scene.gltf', function ( gltf ) {
           console.log(gltf);
           resolve(gltf.scene);
       },
