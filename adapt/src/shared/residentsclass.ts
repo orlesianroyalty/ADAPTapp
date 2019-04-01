@@ -1,4 +1,8 @@
-
+export enum PhysicalConcerns {
+    WheelChair = 0,
+    Blindness = 1,
+    SpeechImpairment = 2
+}
 
 
 export class Resident {
@@ -14,6 +18,11 @@ export class Resident {
     constructor(resJSON?: {
         name: string,
         id: number,
+        age: Number,
+        gender: Number,
+        physicalConcerns: Number[],
+        income: Number,
+        state: string,
     }) {
         this.name = resJSON && resJSON.name;
         this.id =  resJSON && resJSON.id;
@@ -24,10 +33,9 @@ export class Resident {
             name:this.name,
             age:this.age,
             gender: this.gender,
-            agphysicalConcernse:this.physicalConcerns,
+            physicalConcernse:this.physicalConcerns,
             income: this.income,
             location:this.state
-
         }
         return jsonObj
     }

@@ -5,7 +5,7 @@ import { Resident } from './residentsclass';
 
 export class House {
     name: string = "";
-    id?: Number = 0;
+    id: Number = 0;
     numberOfResidents: Number = 0;
 
 
@@ -14,7 +14,6 @@ export class House {
         id: number,
         numResident: number
     }) {
-        console.log("fake")
         this.name = houseJSON && houseJSON.name;
         this.id =  houseJSON && houseJSON.id;
         this.numberOfResidents = houseJSON && houseJSON.numResident;
