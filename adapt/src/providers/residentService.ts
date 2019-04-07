@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Resident } from '../shared/residentsclass';
 import { SERVER_URL } from '../shared/environment';
-var querystring = require("querystring");
+//var querystring = require("querystring");
 @Injectable()
 
 export class ResidentProvider {
