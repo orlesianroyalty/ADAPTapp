@@ -10,23 +10,21 @@ import { RecommendsTabsPage } from '../recommends-tabs/recommends-tabs';
   templateUrl: 'recommends.html'
 })
 export class RecommendsPage {
- 
+  type: any = 'visiblity';
+  roomType: any = 'kitchen';
+  imagePath: any = '';
+  recommendations: any[] = [];
 
   constructor(public navCtrl: NavController) {
-
+    this.setImage();
   }
-
-    
-      goToVisibilityPage() {
-        this.navCtrl.push(RecommendsTabsPage);
-      }
-    
-      goToSafetyPage() {
-        this.navCtrl.push(SafetyRecommends);
-      }
-    
-      goToMobilityPage() {
-        this.navCtrl.push(MobilityRecommends);
-      }
   
+  setImage() {
+    switch (this.roomType) {
+      case 'kitchen':
+        this.imagePath = 'assets/imgs/Kitchen-BW.jpg';
+        break;
+      default: break;
+    }
+  }
 }

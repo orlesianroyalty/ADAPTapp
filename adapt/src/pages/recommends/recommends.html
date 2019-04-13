@@ -1,37 +1,33 @@
 <ion-header>
     <ion-navbar>
-      <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
-      <ion-title>Recommendations</ion-title>
+      <ion-title>Kitchen</ion-title>
     </ion-navbar>
-  </ion-header>
+    <ion-toolbar>
+      <ion-segment [(ngModel)]="type">
+        <ion-segment-button value="visiblity">Visiblity</ion-segment-button>
+        <ion-segment-button value="mobility">Mobility</ion-segment-button>
+        <ion-segment-button value="safety">Safety</ion-segment-button>
+      </ion-segment>
+    </ion-toolbar>
+</ion-header>
   
-  <ion-content padding>
-    <ion-grid>
+<ion-content>
+  <div *ngIf="type == 'visiblity'">
+    <ion-card>
       <ion-row>
         <ion-col>
-          <button ion-button full color="danger" (click)="goToMobilityPage()">
-              <ion-label>Mobility Recommendations</ion-label>
-          </button>
+          <img [src]="imagePath"/>
         </ion-col>
         <ion-col>
-            <button ion-button full color="danger" (click)="goToVisibilityPage()">
-                <ion-label>Visibility Recommendations</ion-label>
-            </button>
+          Visiblity Rec 1
         </ion-col>
       </ion-row>
-  
-  
-        <ion-row>
-          <ion-col>
-              <button ion-button full color="danger" (click)="goToSafetyPage()">
-                  <ion-label>Safety Recommendations</ion-label>
-              </button>
-          </ion-col>
-        </ion-row>
-    </ion-grid>
-  
-  
-  
-  </ion-content>
+    </ion-card>
+  </div>
+  <div *ngIf="type == 'mobility'">
+
+  </div>
+  <div *ngIf="type == 'safety'">
+
+  </div>
+</ion-content>

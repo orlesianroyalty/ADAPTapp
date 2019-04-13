@@ -4,6 +4,7 @@ import {HousesProvider} from './../../providers/housesService'
 import { HouseDetailTabsPage } from './../house-detail-tabs/house-detail-tabs';
 import { RecommendsTabsPage } from '../recommends-tabs/recommends-tabs';
 import { House } from '../../shared/housesclass'
+import { RecommendsPage } from '../recommends/recommends';
 
 @Component({
   selector: 'page-recommendations',
@@ -53,6 +54,6 @@ export class RecommendationsPage {
 
 
   goToRecommendTabs() {
-    this.navCtrl.push(RecommendsTabsPage);
+    this.navCtrl.push(RecommendsPage);
   }
 }
