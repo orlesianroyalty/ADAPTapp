@@ -3,18 +3,21 @@ export class Room {
     type: number = 0;
     description: string = "";
     id: Number = 0;
+    houseId: Number = 0;
     
     
     constructor(roomJSON?: {
         name: string,
         id: number,
         type: number,
-        description: string
+        description: string,
+        houseId: Number
     }) {
         this.name = roomJSON && roomJSON.name;
         this.id =  roomJSON && roomJSON.id;
         this.type =  roomJSON && roomJSON.type;
         this.description = roomJSON && roomJSON.description;
+        this.houseId = roomJSON && roomJSON.houseId
     }
 
     toNetworkJSON(){

@@ -5,6 +5,12 @@ export enum RecommendationCategory {
     Visibility = 2
 }
 
+
+export interface WebSite {
+    name: String
+    url: String
+}
+
 export class Recommendation {
 
     name: string;
@@ -12,7 +18,7 @@ export class Recommendation {
     description: string;
     cost: number;
     type: number;
-    websites: String[]
+    websites: WebSite[]
     
     constructor(recJSON?: {
         name: string,
@@ -20,7 +26,7 @@ export class Recommendation {
         description: string,
         cost: number,
         type: number,
-        websites: String[]
+        websites: WebSite[]
     }) {
         this.name = recJSON.name;
         this.id = recJSON.id;
