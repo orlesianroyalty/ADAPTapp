@@ -1,8 +1,8 @@
+import { AltView } from './../pages/recommendations-alt-view/alt-view';
 import { LoginPage } from './../pages/login/login';
 import { CreateHousePage } from './../pages/create-house/create-house';
 import { HousesProvider } from './../providers/housesService';
 import { ResidentProvider } from './../providers/residentService';
-
 import { HttpClientModule } from '@angular/common/http';
 import { CreateResidentPage } from './../pages/create-resident/create-resident';
 import { CreateRoomPage } from './../pages/create-room/create-room';
@@ -56,7 +56,8 @@ import { VideosPage } from '../pages/videos/videos';
     VisibilityRecommends,
     RecommendsTabsPage,
     VideosPage,
-    LoginPage
+    LoginPage,
+    AltView
   ],
   imports: [
     BrowserModule,
@@ -88,7 +89,8 @@ import { VideosPage } from '../pages/videos/videos';
     VisibilityRecommends,
     RecommendsTabsPage,
     VideosPage,
-    LoginPage
+    LoginPage,
+    AltView
   ],
   providers: [
     StatusBar,

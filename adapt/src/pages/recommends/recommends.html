@@ -1,6 +1,6 @@
 <ion-header>
     <ion-navbar>
-      <ion-title>Kitchen</ion-title>
+      <ion-title>{{roomName}}</ion-title>
     </ion-navbar>
     <ion-toolbar>
       <ion-segment [(ngModel)]="type">
@@ -13,13 +13,13 @@
   
 <ion-content>
   <div *ngIf="type == 'visiblity'">
-    <ion-card>
-      <ion-row>
+    <ion-card (click)="showActionSheetCtrl(rec)" *ngFor="let rec of recommendationsV">
+      <ion-row>  
         <ion-col>
           <img [src]="imagePath"/>
-        </ion-col>
-        <ion-col>
-          Visiblity Rec 1
+        </ion-col>                   
+        <ion-col>  
+          rec1
         </ion-col>
       </ion-row>
     </ion-card>
