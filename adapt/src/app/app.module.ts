@@ -2,7 +2,7 @@ import { LoginPage } from './../pages/login/login';
 import { CreateHousePage } from './../pages/create-house/create-house';
 import { HousesProvider } from './../providers/housesService';
 import { ResidentProvider } from './../providers/residentService';
-import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+//import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 import { HttpClientModule } from '@angular/common/http';
 import { CreateResidentPage } from './../pages/create-resident/create-resident';
