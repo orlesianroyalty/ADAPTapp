@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title> 
+            Tip Detail
+        </ion-title>
+        <ion-buttons start>
+        <button ion-button (click)="dismiss()">
+            <span ion-text color="primary">close</span>
+        </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content padding>
+    <div>
+
+        <ion-label> {{tip.name}} </ion-label>
+        <ion-label> Category: </ion-label>
+        <ion-label color="primary" > {{typeDescriptor}} </ion-label>
+        <ion-label color="secondary" > {{tip.subtype}} </ion-label>
+        <ion-label> description: </ion-label>
+    
+        <ion-label> {{tip.description}} </ion-label>
+        
+            <ion-grid>
+                    <ion-row>
+                            <button style="vertical-align: bottom" (click)="openTipLink()" ion-button full><ion-icon ios="ios-globe" md="md-globe"></ion-icon>
+                                Visit Website</button>
+                    </ion-row>
+                    <ion-row>
+                            <button style="vertical-align: bottom" (click)="save()" ion-button full> <ion-icon ios="ios-bookmark" md="md-bookmark"></ion-icon>
+                                Save To Checklist</button>
+                    </ion-row>
+            </ion-grid>
+
+    </div>
+
+
+</ion-content>

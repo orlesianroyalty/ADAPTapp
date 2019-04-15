@@ -16,22 +16,24 @@ export class TipProvider {
     }
   
     getTips() {
-        return new Promise(resolve => {
+        return new Promise<Tip[]>(resolve => {
             this.http.get<Tip[]>(this.tipEndpoint).subscribe(data => {
-            resolve(data);
+                resolve(data);
             }, err => {
-            console.log(err);
+                console.log(err);
             });
         });
     }
 
     getTipsFor(typeID: number) {
-        var url = encodeURIComponent(this.tipEndpoint+'{"where":{"type":' + typeID + '}}');
-        return new Promise(resolve => {
+        var filterEncoded = encodeURIComponent('{"where":{"type":' + typeID + '}}');
+        var url = this.tipEndpoint+'?filter=' + filterEncoded
+        console.log(url)
+        return new Promise<Tip[]>(resolve => {
             this.http.get<Tip[]>(url).subscribe(data => {
-            resolve(data);
+                resolve(data);
             }, err => {
-            console.log(err);
+                console.log(err);
             });
         });
     }

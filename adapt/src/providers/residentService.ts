@@ -19,7 +19,7 @@ export class ResidentProvider {
       //TODO:update this to add filter object for user id or update server to support lookup
       var url = encodeURIComponent(this.residentEndpoint+'{"where":{"userId":' + userID + '}}');
       this.http.get<Resident[]>(url).subscribe(data => {
-        console.log(data);//TODO: data is not actually  casted to House type
+        console.log(data);
         resolve(data);
       }, err => {
         console.log(err);

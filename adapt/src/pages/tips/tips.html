@@ -7,5 +7,17 @@
     </ion-navbar>
   </ion-header>
   <ion-content>
-
+      <ion-list  inset>
+        <button ion-item *ngFor="let type of tipTypes; let i = index" (click)="goToTipsListPage(i)">
+            {{ type }}
+        </button>  
+      </ion-list>
+    <!--<div *ngFor="let type of tipTypes; let i = index">
+        
+      <ion-row text-center (click)="goToTipsListPage(i)" class="tip-type-row">
+        <ion-col  col-10 > <ion-label>{{type}}</ion-label>  </ion-col>
+        <ion-col text-center col-2  ><ion-icon float-right class='more-icon' name="ios-arrow-forward-outline"></ion-icon></ion-col>
+      
+      </ion-row>
+    </div>-->
   </ion-content>
