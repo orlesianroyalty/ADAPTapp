@@ -1,22 +1,19 @@
-<ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>ADAPT</ion-title>
-  </ion-navbar>
-</ion-header>
+
 
 <ion-content padding>
+
+  <ion-item class="title">
+    ADAPT
+  </ion-item>
   <ion-grid>
     <ion-row>
       <ion-col>
-        <button ion-button full color="orange" (click)="goToMyProfilePage()">
-            <ion-label>Profile</ion-label>
-        </button>
+            <button ion-button class="profile" full color="orange" (click)="goToMyProfilePage()">
+              <ion-label>Profile</ion-label>
+           </button>
       </ion-col>
       <ion-col>
-          <button ion-button full color="orange" (click)="goToMyChecklistPage()">
+          <button ion-button class="checklist" full color="orange" (click)="goToMyChecklistPage()">
               <ion-label>My Checklist</ion-label>
           </button>
       </ion-col>
@@ -25,12 +22,12 @@
 
       <ion-row>
         <ion-col>
-            <button ion-button full color="orange" (click)="goToRecommendationsPage()">
+            <button ion-button class="recommends" full color="orange" (click)="goToRecommendationsPage()">
                 <ion-label>Get Recommendations</ion-label>
             </button>
         </ion-col>
         <ion-col>
-            <button ion-button full color="orange" (click)="goToTipsPage()">
+            <button ion-button class="tips" full color="orange" (click)="goToTipsPage()">
                 <ion-label>Tips</ion-label>
             </button>
         </ion-col>
