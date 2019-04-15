@@ -6,5 +6,13 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'alt-view.html'
 })
 export class AltView {
-    constructor() {}
+  recommendations: any[] = ["Recommendation 1", "Recommendation 2"];
+  imagePath: any = '';
+      constructor(private navCtrl: NavController, private navParams: NavParams) {
+        this.setImagePath();
+      }
+
+      setImagePath() {
+        this.imagePath = '../../assets/imgs/Kitchen-BW.jpg';
+      }
 }

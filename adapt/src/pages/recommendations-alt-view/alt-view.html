@@ -5,15 +5,14 @@
 </ion-header>
 <ion-content>
     <ion-slides>
-        <ion-slide>
-            <ion-card>
-                Slide1
-            </ion-card>    
-        </ion-slide>
-        <ion-slide>
-            <ion-card>
-                Slide2
-            </ion-card>
+        <ion-slide *ngFor="let rec of recommendations" pager>
+            <div>
+                <div>
+                    <img [src]="imagePath"/>
+                </div>
+                <br>
+                {{rec}}
+            </div>    
         </ion-slide>
     </ion-slides>
 </ion-content>
