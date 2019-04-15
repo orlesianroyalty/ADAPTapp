@@ -1,8 +1,7 @@
 {
-    "name": "adapt-app",
-    "integrations": {
-        "cordova": {}
-    },
-    "type": "ionic-angular",
-    "app_id": ""
+  "name": "adapt-app",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
 }
