@@ -1,4 +1,9 @@
 page-login {
+    .title {
+        color: chocolate;
+        font-size: 20pt;
+        text-align: center;
+    }
     .content-container {
         //background: linear-gradient(rgba(252,234,187,1) 0%, rgba(251,223,147,1) 11%, rgba(248,181,0,1) 59%, rgba(252,97,13,1) 100%);
     }
@@ -10,5 +15,13 @@ page-login {
     }
     .input-item {
         border-radius: 20px;
+    }
+    .login {
+        color: black;
+        background-color: chocolate;
+    }
+    .guest {
+        color: black;
+        background-color: chocolate;
     }
 }

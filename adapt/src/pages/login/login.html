@@ -1,6 +1,10 @@
 <ion-header></ion-header>
+
 <ion-content padding class="content-container">
-    <div class="container-div" style="padding-top: 200px">
+    <ion-item class="title">
+            ADAPT
+    </ion-item>
+    <div class="container-div" style="padding-top: 100px">
         <div class="label-div">
             Username:
         </div>
@@ -17,6 +21,9 @@
         </ion-item>
     </div>
     <div>
-        <button ion-button (click)="login()" style="float:right">Log In</button>
+        <button class="login" ion-button (click)="login()" style="float:right">Log In</button>
+    </div>
+    <div>
+        <button class="guest" ion-button (click)="login()" style="float:right">Continue As Guest</button>
     </div>
 </ion-content>
