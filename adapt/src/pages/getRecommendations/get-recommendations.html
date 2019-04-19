@@ -8,15 +8,18 @@
   </ion-header>
   <ion-content>
     <div>
-    <ion-label>Select House</ion-label>
-    <ion-select [(ngModel)]="houseSelected" (ionChange)="showRooms(houseSelected)">
-      <ion-option *ngFor="let house of houses" value="{{house.houseID}}">{{house.name}}</ion-option>
-    </ion-select>
-  </div>
-  <div *ngIf="houseSelected != ''">
-      <ion-label>Select Room</ion-label>
-      <ion-select [(ngModel)]="roomSelected" (ngModelChange)="goToRecommendTabs()">
-        <ion-option *ngFor="let room of rooms" value="{{room}}">{{room}}</ion-option>
+      <ion-label>Select House</ion-label>
+      <ion-select [(ngModel)]="houseSelected">
+        <ion-option *ngFor="let house of houses" [selected] = "houseSelected == house.id" value="{{house.id}}">{{house.name}}</ion-option>
       </ion-select>
+    </div>
+    <div>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6 *ngFor="let room of rooms" onclick="showRecommendations(room.typeId)">
+              {{room.name}}
+            </ion-col>
+          </ion-row>
+        </ion-grid>
     </div>
   </ion-content>

@@ -1,3 +1,15 @@
+export enum RoomType {
+    SpaceOutsideTheHome = 0,
+    Entrance = 1,
+    TravelSpace = 2,
+    Kitchen = 3,
+    Bedroom = 4,
+    Storage = 5,
+    Laundry = 6,
+    General = 7
+}
+
+
 export class Room {
     name: string = "";
     type: number = 0;

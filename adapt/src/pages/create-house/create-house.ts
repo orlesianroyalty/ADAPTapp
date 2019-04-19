@@ -1,6 +1,6 @@
 import { House } from './../../shared/housesclass';
 import { Component, Input } from '@angular/core';
-import { NavController, ModalController, ViewController } from 'ionic-angular';
+import { NavController, NavParams, ModalController, ViewController } from 'ionic-angular';
 import {HousesProvider} from './../../providers/housesService'
 
 @Component({
@@ -9,10 +9,11 @@ import {HousesProvider} from './../../providers/housesService'
 })
 export class CreateHousePage {
     newHouse: House;
-    @Input() userID: number;
+    userID: number;
 
-  constructor(public navCtrl: NavController, public housesProvider: HousesProvider, public modalCtrl: ModalController, public viewCtrl: ViewController) {
+  constructor(public navCtrl: NavController,public navParams: NavParams, public housesProvider: HousesProvider, public modalCtrl: ModalController, public viewCtrl: ViewController) {
     this.newHouse = new House();
+    this.userID  = navParams.get('userID');
   }
 
   create() {

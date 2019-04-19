@@ -5,25 +5,30 @@
             ADAPT
     </ion-item>
     <div class="container-div" style="padding-top: 100px">
-        <div class="label-div">
-            Username:
-        </div>
-        <ion-item class="input-item">
-            <ion-input></ion-input>
+        
+        <ion-item>
+            <ion-label position="fixed">Email:</ion-label>
+            <ion-input type="email" [(ngModel)]="email" ></ion-input>
         </ion-item>
     </div>
     <div class="container-div">
-        <div class="label-div">
-            Password:
-        </div>
         <ion-item class="input-item">
-            <ion-input></ion-input>
+            <ion-label position="fixed">Password:</ion-label>
+            <ion-input type="password" [(ngModel)]="password" ></ion-input>
         </ion-item>
     </div>
-    <div>
-        <button class="login" ion-button (click)="login()" style="float:right">Log In</button>
+    <div class = "button-parent">
+        <button class="login" [disabled]="!password || !email" full ion-button (click)="login()" style="float:right">Log In</button>
     </div>
-    <div>
-        <button class="guest" ion-button (click)="login()" style="float:right">Continue As Guest</button>
-    </div>
+    
+    <ion-grid >
+        <ion-row>
+                <ion-col>
+                    <button class="general" [disabled]="!password || !email" full ion-button (click)="register()">Sign up</button>
+                </ion-col>
+                <ion-col>
+                    <button class="general" full ion-button (click)="guestEntry()">Continue As Guest</button>
+                </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>

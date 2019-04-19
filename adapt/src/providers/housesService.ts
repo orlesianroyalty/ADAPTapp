@@ -2,9 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { House } from '../shared/housesclass';
 import { SERVER_URL } from '../shared/environment';
-
+import { map } from 'rxjs/operators';
 @Injectable()
-
 export class HousesProvider {
 
     private apiUrl = SERVER_URL + '/api/';
@@ -16,14 +15,12 @@ export class HousesProvider {
 
   //this is the general format
 	getHouses(userID: number) {
-    return new Promise<House[]>(resolve => {
-      this.http.get<House[]>(this.houseEndpoint).subscribe(data => {
-        console.log(data);//TODO: data is not actually  casted to House type
-        resolve(data);
-      }, err => {
-        console.log(err);
-      });
-    });
+    var filterEncoded = encodeURIComponent('{"where":{"userId":' + userID + '}}');
+    var url = this.houseEndpoint+'?filter=' + filterEncoded
+    return this.http.get<any[]>(url).pipe(map((data) => {
+      
+        return data.map( house => new House(house)) 
+    }));
   }
 
   create(userID: number, houseData:House) {

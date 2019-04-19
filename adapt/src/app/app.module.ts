@@ -1,7 +1,6 @@
 import { LoginPage } from './../pages/login/login';
 import { CreateHousePage } from './../pages/create-house/create-house';
-import { HousesProvider } from './../providers/housesService';
-import { ResidentProvider } from './../providers/residentService';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 import { HttpClientModule } from '@angular/common/http';
 import { CreateResidentPage } from './../pages/create-resident/create-resident';
@@ -20,6 +19,8 @@ import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TipsPage } from '../pages/tips/tips';
+import { TipsListPage } from '../pages/tips-list/tips-list';
+import { TipDetailPage } from '../pages/tip-detail/tip-detail';
 import { RoomsPage } from '../pages/rooms/rooms';
 import { HouseDetailTabsPage } from '../pages/house-detail-tabs/house-detail-tabs';
 import { SavedTipsPage } from '../pages/savedTips/saved-tips';
@@ -31,6 +32,14 @@ import { MobilityRecommends } from '../pages/mobility-recommends/mobility-recomm
 import { VisibilityRecommends } from '../pages/visibility-recommends/visibility-recommends';
 import { RecommendsTabsPage } from '../pages/recommends-tabs/recommends-tabs';
 import { VideosPage } from '../pages/videos/videos';
+
+// Network providers
+import { HousesProvider } from './../providers/housesService';
+import { ResidentProvider } from './../providers/residentService';
+import { TipProvider } from '../providers/tipService';
+import { RoomsProvider } from '../providers/roomService';
+import { RecommendationsProvider } from '../providers/recommendationService';
+import { UserProvider} from '../providers/userService';
 @NgModule({
   declarations: [
     MyApp,
@@ -41,6 +50,8 @@ import { VideosPage } from '../pages/videos/videos';
     MyProfileTabsPage,
     RecommendationsPage,
     TipsPage,
+    TipsListPage,
+    TipDetailPage,
     RoomsPage,
     ResidentsPage,
     HouseDetailTabsPage,
@@ -73,6 +84,8 @@ import { VideosPage } from '../pages/videos/videos';
     MyProfileTabsPage,
     RecommendationsPage,
     TipsPage,
+    TipsListPage,
+    TipDetailPage,
     RoomsPage,
     ResidentsPage,
     HouseDetailTabsPage,
@@ -93,8 +106,13 @@ import { VideosPage } from '../pages/videos/videos';
   providers: [
     StatusBar,
     SplashScreen,
+    InAppBrowser,
     HousesProvider,
+    RecommendationsProvider,
     ResidentProvider,
+    TipProvider,
+    RoomsProvider,
+    UserProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

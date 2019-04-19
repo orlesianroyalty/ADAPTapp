@@ -18,12 +18,12 @@
          </div>
 
       <ion-list>
-        <button ion-item *ngFor="let resident of residentsObjects" >
+        <button ion-item *ngFor="let resident of residents" >
 
           {{resident.name}}
           <div item-end>
-            <button ion-button>Edit</button>
-            <button ion-button>Delete</button>
+            <button ion-button (click)="editResident(resident)">Edit</button>
+            <button ion-button (click)="deleteResident(resident)">Delete</button>
           </div>
         </button>
       </ion-list>

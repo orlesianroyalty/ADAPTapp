@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { NavController, ModalController } from 'ionic-angular';
 import {ResidentProvider} from './../../providers/residentService'
 import { Resident } from "./../../shared/residentsclass"
+import { UserProvider } from '../../providers/userService';
 
 @Component({
   selector: 'page-residents',
@@ -11,18 +12,13 @@ import { Resident } from "./../../shared/residentsclass"
 export class ResidentsPage {
 
   names: string[];
-  userID = 1;
-  residents: Array<{name: string}>;
-  residentsObjects : Resident[];
+  userID: number;
+  residents : Resident[];
 
-  constructor(public navCtrl: NavController, public residentProvider: ResidentProvider, public modalCtrl: ModalController) {
-    this.names = ['Rain', 'JR', 'Michelle', 'Sam', 'Seth']
-    this.residents = [];
-    for (let i = 1; i < this.names.length; i++) {
-      this.residents.push({
-        name: this.names[i]
-      });
-    }
+  constructor(public navCtrl: NavController, public residentProvider: ResidentProvider, 
+    public userSession: UserProvider,
+    public modalCtrl: ModalController) {
+    this.userID = userSession.user.userId;
   }
 
 
@@ -31,18 +27,28 @@ export class ResidentsPage {
   }
 
   getResidents(){
-    this.residentProvider.getResidents(this.userID)
-    .then( data  => {
-        this.residentsObjects = data;
-        console.log(data);
+    this.residentProvider.getResidents(this.userID).subscribe(data =>{
+      this.residents = data;
+      console.log(data);
     });
+  }
+
+  editResident(resident){
+    this.residentProvider.update(resident.id, resident).subscribe(()=>{
+      this.getResidents();
+    })
+  }
+
+  deleteResident(resident){
+    this.residentProvider.delete(resident.id).subscribe(()=>{
+      this.getResidents();
+    })
   }
 
   goToCreate() {
 
     const modal = this.modalCtrl.create(
-      CreateResidentPage,
-       {'userID': this.userID}
+      CreateResidentPage
     );
     modal.onDidDismiss(data => {
       this.getResidents();

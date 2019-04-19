@@ -4,6 +4,7 @@ import { NavController, ModalController } from 'ionic-angular';
 import {HousesProvider} from './../../providers/housesService'
 import { HouseDetailTabsPage } from './../house-detail-tabs/house-detail-tabs';
 import { House } from './../../shared/housesclass'
+import { UserProvider } from '../../providers/userService';
 
 @Component({
   selector: 'page-houses',
@@ -13,22 +14,22 @@ export class HousesPage {
   houses: House[];
   userID: number;
 
-  constructor(public navCtrl: NavController, public housesProvider: HousesProvider, public modalCtrl: ModalController) {
-    this.userID = 1;
+  constructor(public navCtrl: NavController, 
+    public housesProvider: HousesProvider, 
+    public userSession: UserProvider,
+    public modalCtrl: ModalController) {
+    this.userID = userSession.user.userId;
   }
 
   ionViewWillEnter(){
-    console.log("hello");
     this.getHouses();
   }
 
   getHouses(){
-    this.housesProvider.getHouses(this.userID)
-    .then( data  => {
-        this.houses = data;
-        console.log(data);
-    }
-    );
+    this.housesProvider.getHouses(this.userID).subscribe(houses => {
+      this.houses = houses;
+      console.log(houses);
+    })
   }
 
   goToCreate() {
