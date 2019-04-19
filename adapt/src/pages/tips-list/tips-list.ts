@@ -26,12 +26,10 @@ export class TipsListPage {
   }
 
   getTips(){
-    this.tipProvider.getTipsFor(this.tipType)
-    .then( data  => {
-        this.tips = data;
-        console.log(data);
-    }
-    );
+    this.tipProvider.getTipsFor(this.tipType).subscribe(tips => {
+      this.tips = tips;
+      console.log(tips);
+    });
   }
 
   getColor(tipSubtype) {

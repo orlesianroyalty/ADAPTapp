@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Room } from '../shared/roomsclass';
 import { Recommendation } from '../shared/recommendation';
 import { SERVER_URL } from '../shared/environment';
+import { map } from 'rxjs/operators';
 
 
 @Injectable()
@@ -16,26 +17,19 @@ export class RoomsProvider {
   }
 
     getRecommendationsFor(roomID: number) {
-      return new Promise(resolve => {
-        this.http.get<Recommendation[]>(this.roomEndpoint + '/' + roomID + "/getRecommendations").subscribe(data => {
-          resolve(data);
-        }, err => {
-          console.log(err);
-        });
-      });
+      
+      var url = this.roomEndpoint + '/' + roomID + "/getRecommendations"
+      return this.http.get<any[]>(url).pipe(map((data) => {
+          return data.map( house => new Recommendation(house)) 
+      }));
     }
 
     getRoomsFor(houseID: number) {
-      return new Promise<Room[]>(resolve => {
-        //TODO:update this to add filter object for user id or update server to support lookup
-        var url = this.apiUrl + '/houses/' + houseID + '/rooms';
-        this.http.get<Room[]>(url).subscribe(data => {
-          console.log(data);//TODO: data is not actually  casted to House type
-          resolve(data);
-        }, err => {
-          console.log(err);
-        });
-      });
+      var url = this.apiUrl + '/houses/' + houseID + '/rooms';
+      return this.http.get<any[]>(url).pipe(map((data) => {
+        return data.map( room => new Room(room)); 
+        
+      }));
     }
   
     create(userID: number, roomData:Room) {

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Recommendation } from '../shared/recommendation';
 import { SERVER_URL } from '../shared/environment';
+import { map } from 'rxjs/operators';
 
 
 @Injectable()
@@ -17,13 +18,10 @@ export class RecommendationsProvider {
 
   //Gets a single recommendation based on id
   getRecommendation(recID: String) {
-    return new Promise(resolve => {
-      this.http.get<Recommendation>(this.recEndpoint + '/' + recID).subscribe(data => {
-        resolve(data);
-      }, err => {
-        console.log(err);
-      });
-    });
+    return this.http.get<Recommendation>(this.recEndpoint + '/' + recID).pipe( map((data) => {
+      return new Recommendation (data);
+    }));
   }
+      
 
 }

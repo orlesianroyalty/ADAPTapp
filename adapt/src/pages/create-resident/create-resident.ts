@@ -2,6 +2,7 @@ import { Resident } from './../../shared/residentsclass';
 import { Component , Input } from '@angular/core';
 import { NavController, ViewController } from 'ionic-angular';
 import { ResidentProvider } from '../../providers/residentService' 
+import { UserProvider } from '../../providers/userService';
 
 
 @Component({
@@ -11,15 +12,18 @@ import { ResidentProvider } from '../../providers/residentService'
 //TODO: create enum for the physical concerns, then create a drop down
 //in html to map this enum type and enable multi select
 export class CreateResidentPage {
-    
-    @Input() userID: number;
+    userID: number;
     newRes: Resident;
     physConcerns: Array<{label: string, value: number}>;
     incomes : Array<{label: string, value: number}>;
     states: String[];
 
-  constructor(public navCtrl: NavController,public residentProvider: ResidentProvider,  public viewCtrl:ViewController) {
+  constructor(public navCtrl: NavController,
+    public residentProvider: ResidentProvider,
+    public userSession: UserProvider,
+      public viewCtrl:ViewController) {
     this.instantiateNewVars();
+    this.userID = userSession.user.userId;
     
   }
 
@@ -27,8 +31,8 @@ export class CreateResidentPage {
     this.residentProvider.create(this.userID, this.newRes)
      .then( data => {
       console.log(data);
+      this.dismiss();
     });
-    this.dismiss();
   }
 
   dismiss() {

@@ -1,7 +1,9 @@
 import { CreateRoomPage } from './../create-room/create-room';
 import { Component } from '@angular/core';
-import { NavController, ModalController } from 'ionic-angular';
+import { NavController, ModalController, NavParams } from 'ionic-angular';
 import { RecommendsTabsPage } from '../recommends-tabs/recommends-tabs';
+import { RoomsProvider } from '../../providers/roomService';
+import { Room} from '../../shared/roomsclass';
 
 @Component({
   selector: 'page-rooms',
@@ -9,33 +11,23 @@ import { RecommendsTabsPage } from '../recommends-tabs/recommends-tabs';
 })
 export class RoomsPage {
 
-  rooms: Array<{name: string, type: string}>;
+  rooms: Room[];
   hideBedrooms: boolean = true;
   hideKitchens: boolean = true;
   hideBathrooms: boolean = true;
+  houseID: number;
 
-  constructor(public navCtrl: NavController, public modalCtrl: ModalController) {
-    this.rooms = [];
-  // this.rooms.push({
-  //  name: "John's Kitchen",
-  // type: 'Kitchen'
-  // });
+  constructor(public navCtrl: NavController, public modalCtrl: ModalController,
+    public navParams: NavParams,
+    public roomsProvider: RoomsProvider, ) {
+      this.houseID  = navParams.get('houseId');
+  }
 
-
-   // this.rooms.push({
-   //   name: "Rain's Office",
-   //   type: 'Office'
-   // });
-
-  //  this.rooms.push({
-  //    name: "Bedroom 1",
-  //    type: 'Bedroom'
-  //  });
-
-  //  this.rooms.push({
-  //    name: "Guest Bedroom",
-  //    type: 'Bedroom'
-  //  });
+  getRooms(){
+    this.roomsProvider.getRoomsFor(this.houseID).subscribe(rooms => {
+      this.rooms = rooms;
+      console.log(rooms);
+    })
   }
 
   createRoom() {

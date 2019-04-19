@@ -5,6 +5,7 @@ import { HouseDetailTabsPage } from './../house-detail-tabs/house-detail-tabs';
 import { RecommendsTabsPage } from '../recommends-tabs/recommends-tabs';
 import { House } from '../../shared/housesclass'
 import { RecommendsPage } from '../recommends/recommends';
+import { UserProvider } from '../../providers/userService';
 
 @Component({
   selector: 'page-recommendations',
@@ -12,48 +13,45 @@ import { RecommendsPage } from '../recommends/recommends';
 })
 export class RecommendationsPage {
   userID = 1;
-  housesObjects: House[]
-  houses: Array<{name: string, houseID: number}>;
-  rooms1 = [
-    "Rain's Kitchen", "Sam's Bedroom", "Michelle's Bathroom", "Seth's Lair", "JR's Study" 
-  ];
-  rooms2 = [
-    "Living Room", "Office", "Stairs", "Game Room", "Conservatory"
-  ];
-  rooms = [];
-  houseSelected: String = "";
+  houses: House[];
+  rooms : Array<{typeId:number, name: string }>;
+  houseSelected: number = 0;
 
-  constructor(public navCtrl: NavController, public housesProvider: HousesProvider,) {
-    this.houses = [];
-    for (let i = 1; i < 11; i++) {
-      this.houses.push({
-        name: "house" + i,
-        houseID: i
-      });
-    }
+  constructor(public navCtrl: NavController, public housesProvider: HousesProvider, public userSession: UserProvider) {
+    this.userID = userSession.user.userId;
+    this.initializeRoomTypes()
+    this.getHouses();
+
   }
 
+  initializeRoomTypes(){
+    this.rooms = [
+      {typeId:0, name: "Space Outside the Home" },
+      {typeId:1, name: "Entrance Into the Home" },
+      {typeId:2, name: "Travel Space Through the Home" },
+      {typeId:3, name: "Kitchen" },
+      {typeId:4, name: "Restroom" },
+      {typeId:5, name: "Bedroom" },
+      {typeId:6, name: "Storage" },
+      {typeId:7, name: "Laundry" },
+      {typeId:8, name: "General" },
+    ];
+  
+  }
 
   getHouses(){
-    this.housesProvider.getHouses(this.userID)
-    .then( data => {
-        this.housesObjects = data;
-        console.log(data);
-    }
-    );
-  }
 
-  showRooms(houseID: any) {
-    if (houseID == 1){
-      this.rooms = this.rooms1;
-    }
-    if (houseID == 2){
-      this.rooms = this.rooms2;
-    }
+    this.housesProvider.getHouses(this.userID).subscribe(houses => {
+      this.houses = houses;
+      console.log(houses);
+    })
   }
 
 
-  goToRecommendTabs() {
-    this.navCtrl.push(RecommendsPage);
+  showRecommendations(roomID) {
+    this.navCtrl.push(RecommendsPage, {
+      roomId: roomID,
+      houseId: this.houseSelected
+    });
   }
 }

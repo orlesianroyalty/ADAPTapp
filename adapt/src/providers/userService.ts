@@ -11,6 +11,7 @@ export class UserProvider {
   
     private apiUrl = SERVER_URL + '/api/';
     private userEndpoint = this.apiUrl+'users';
+    user: AuthenticatedUser;
   
     constructor(public http: HttpClient) {
     }
@@ -22,7 +23,8 @@ export class UserProvider {
                 password:password
             }
             this.http.post<AuthenticatedUser>(this.userEndpoint + "/login",data ).subscribe(data => {
-                resolve(new AuthenticatedUser(data));
+                this.user = new AuthenticatedUser(data);
+                resolve(this.user);
             }, err => {
                 console.log(err);
                 reject(err.statusText);

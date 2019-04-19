@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Tip } from '../shared/tip';
 import { SERVER_URL } from '../shared/environment';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 
@@ -16,26 +17,18 @@ export class TipProvider {
     }
   
     getTips() {
-        return new Promise<Tip[]>(resolve => {
-            this.http.get<Tip[]>(this.tipEndpoint).subscribe(data => {
-                resolve(data);
-            }, err => {
-                console.log(err);
-            });
-        });
+        return this.http.get<any[]>(this.tipEndpoint).pipe(map((data) => {
+            return data.map( tip => new Tip(tip));
+        }));
     }
 
     getTipsFor(typeID: number) {
         var filterEncoded = encodeURIComponent('{"where":{"type":' + typeID + '}}');
         var url = this.tipEndpoint+'?filter=' + filterEncoded
-        console.log(url)
-        return new Promise<Tip[]>(resolve => {
-            this.http.get<Tip[]>(url).subscribe(data => {
-                resolve(data);
-            }, err => {
-                console.log(err);
-            });
-        });
+        console.log(url);
+        return this.http.get<any[]>(url).pipe(map((data) => {
+            return data.map( tip => new Tip(tip));
+        }));
     }
   
   }

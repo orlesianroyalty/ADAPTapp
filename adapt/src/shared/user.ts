@@ -11,6 +11,7 @@ export class AuthenticatedUser {
     userId: number;
     accessToken: string;
     email: string;
+    isGuest: boolean = true;
 
     constructor(userObj?:Object){
         this.userId = userObj["userId"];
