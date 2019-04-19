@@ -2,35 +2,45 @@ page-home {
     .title {
         color: chocolate;
         font-size: 20pt;
-        text-align: center;
     }
     .profile {
-        background-color: rgb(255, 187, 138);
-        color: black;
+        background-color:  rgb(252, 135, 52);
+        color: whitesmoke;
+        word-wrap: break-word;
+        text-transform: none;
+        font-size: 15pt;
         height:90px; 
-        width:130px; 
-        font-size: 11pt;
     }
     .checklist {
-        background-color: rgb(255, 158, 88);
-        color: black;
+        background-color: rgb(252, 135, 52);
+        color: whitesmoke;
+        word-wrap: break-word;
+        text-transform: none;
+        font-size: 15pt;
         height:90px; 
-        width:130px; 
-        font-size: 11pt;
     }
     .recommends {
         background-color: rgb(252, 135, 52);
-        color: black;
-        //height:90px;
-        //width:130px; 
+        color: whitesmoke;
+        word-wrap: break-word;
+        text-transform: none;
+        font-size: 15pt;
+        height:90px; 
     }
     .tips {
-        background-color: rgb(255, 106, 0);
-        color: black;
-        //height:90px;
-        //width:130px; 
-        //background-image: url('http://www.chineselight.com/uploads/130107/1_114009_1.jpg');
-        //background-size: 130px 90px;
-        //z-index: 0;
+        background-color: rgb(252, 135, 52);
+        color: whitesmoke; 
+        word-wrap: line;
+        text-transform: none;
+        font-size: 15pt;
+        height:90px; 
+    }
+    .version {
+        color: gray;
+        font-size: 15pt;
+        text-align: center;
+        width: 100%;
+        bottom: 20px;
+        position: absolute;
     }
 }

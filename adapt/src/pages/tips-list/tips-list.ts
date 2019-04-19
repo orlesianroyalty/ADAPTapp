@@ -1,13 +1,15 @@
 import { Component, Input } from '@angular/core';
 import { NavController, NavParams, ModalController } from 'ionic-angular';
 import {TipProvider} from './../../providers/tipService'
-import { Tip, TipType } from './../../shared/tip'
+import { Tip } from './../../shared/tip'
 import { TipDetailPage } from '../tip-detail/tip-detail';
 
 @Component({
   selector: 'page-tips-list',
   templateUrl: 'tips-list.html'
 })
+
+
 export class TipsListPage {
 
   tips: Tip[];

@@ -4,7 +4,6 @@ import { House } from '../shared/housesclass';
 import { SERVER_URL } from '../shared/environment';
 
 @Injectable()
-
 export class HousesProvider {
 
     private apiUrl = SERVER_URL + '/api/';

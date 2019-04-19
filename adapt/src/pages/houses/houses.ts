@@ -18,7 +18,6 @@ export class HousesPage {
   }
 
   ionViewWillEnter(){
-    console.log("hello");
     this.getHouses();
   }
 

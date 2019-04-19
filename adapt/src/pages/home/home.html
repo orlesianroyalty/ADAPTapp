@@ -1,20 +1,25 @@
 
-
+<ion-header>
+    <ion-navbar >
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title  class="title">Home</ion-title>
+    </ion-navbar>
+  </ion-header>
 <ion-content padding>
-
-  <ion-item class="title">
-    ADAPT
-  </ion-item>
   <ion-grid>
+      <ion-row><ion-label>Hello, {{user.email}}</ion-label> 
+      </ion-row>
     <ion-row>
       <ion-col>
             <button ion-button class="profile" full color="orange" (click)="goToMyProfilePage()">
-              <ion-label>Profile</ion-label>
+              <ion-label>My Profile</ion-label>
            </button>
       </ion-col>
       <ion-col>
-          <button ion-button class="checklist" full color="orange" (click)="goToMyChecklistPage()">
-              <ion-label>My Checklist</ion-label>
+          <button ion-button class="tips" full color="orange" (click)="goToTipsPage()">
+              <ion-label>Get Tips</ion-label>
           </button>
       </ion-col>
     </ion-row>
@@ -26,14 +31,15 @@
                 <ion-label>Get Recommendations</ion-label>
             </button>
         </ion-col>
+      </ion-row>
+      <ion-row>
         <ion-col>
-            <button ion-button class="tips" full color="orange" (click)="goToTipsPage()">
-                <ion-label>Tips</ion-label>
+            <button ion-button class="checklist" full color="orange" (click)="goToMyChecklistPage()">
+                <ion-label>My Checklist</ion-label>
             </button>
         </ion-col>
       </ion-row>
   </ion-grid>
 
-
-
+  <ion-label class="version">{{version}}</ion-label>
 </ion-content>
