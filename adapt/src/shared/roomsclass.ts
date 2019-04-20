@@ -3,10 +3,11 @@ export enum RoomType {
     Entrance = 1,
     TravelSpace = 2,
     Kitchen = 3,
-    Bedroom = 4,
-    Storage = 5,
-    Laundry = 6,
-    General = 7
+    Restroom = 4,
+    Bedroom = 5,
+    Storage = 6,
+    Laundry = 7,
+    General = 8
 }
 
 

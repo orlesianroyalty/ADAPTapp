@@ -12,10 +12,11 @@ import { UserProvider } from '../../providers/userService';
   templateUrl: 'get-recommendations.html'
 })
 export class RecommendationsPage {
-  userID = 1;
+  userID: number;
   houses: House[];
   rooms : Array<{typeId:number, name: string }>;
   houseSelected: number = 0;
+  houseName: string;
 
   constructor(public navCtrl: NavController, public housesProvider: HousesProvider, public userSession: UserProvider) {
     this.userID = userSession.user.userId;
@@ -44,6 +45,8 @@ export class RecommendationsPage {
     this.housesProvider.getHouses(this.userID).subscribe(houses => {
       this.houses = houses;
       console.log(houses);
+      this.houseSelected = 0;
+      this.houseName = this.houses[this.houseSelected].name;
     })
   }
 
