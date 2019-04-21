@@ -1,33 +1,38 @@
 <ion-header>
     <ion-navbar>
-      <ion-title>Kitchen</ion-title>
+      <ion-title>{{roomName}}</ion-title>
+      <button ion-button end menuToggle>
+          <ion-icon name="menu"></ion-icon>
+      </button> 
     </ion-navbar>
-    <ion-toolbar>
-      <ion-segment [(ngModel)]="type">
-        <ion-segment-button value="visiblity">Visiblity</ion-segment-button>
-        <ion-segment-button value="mobility">Mobility</ion-segment-button>
-        <ion-segment-button value="safety">Safety</ion-segment-button>
-      </ion-segment>
-    </ion-toolbar>
+  <ion-toolbar>
+
+    <ion-searchbar [(ngModel)]="searchText" (ionChange)="filterRecs()" placeholder="Search recommendations"></ion-searchbar>
+  </ion-toolbar>
+    <ion-segment [(ngModel)]="selectedCategory" (ionChange)="filterRecs($event)">
+        <ion-segment-button *ngFor="let category of recTypes" value="{{category.id}}">
+            {{category.name}}
+        </ion-segment-button>
+    </ion-segment>
 </ion-header>
   
 <ion-content>
-  <div *ngIf="type == 'visiblity'">
-    <ion-card>
-      <ion-row>
-        <ion-col>
-          <img [src]="imagePath"/>
-        </ion-col>
-        <ion-col>
-          Visiblity Rec 1
-        </ion-col>
-      </ion-row>
-    </ion-card>
-  </div>
-  <div *ngIf="type == 'mobility'">
 
-  </div>
-  <div *ngIf="type == 'safety'">
-
+  <div >
+      <ion-grid>
+        <ion-item-divider *ngFor="let rec of filteredRecs">
+        <ion-row style="height: 80px" (click)="showRecommendationDetail(rec)">
+            
+                <div class="rec-image">
+                  <img style="width: 80px;height: 80px;" src={{rec.imageURL}} />
+                </div>
+                <div class="rec-info">
+                    <p>{{rec.name}}</p>
+                    <p><em>{{rec.description}}</em></p>
+                </div>
+            
+        </ion-row>
+      </ion-item-divider>
+      </ion-grid>
   </div>
 </ion-content>

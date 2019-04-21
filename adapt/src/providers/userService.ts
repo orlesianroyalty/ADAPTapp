@@ -39,14 +39,8 @@ export class UserProvider {
         const options = {
             headers: headers
         };
-        return new Promise((resolve, reject) => {
-            var data = {};
-            this.http.post(this.userEndpoint + "/logout",data, options).subscribe(data => {
-                resolve();
-            }, err => {
-                reject();
-            });
-        });
+        const url = this.userEndpoint + "/logout?access_token="+accessToken;
+        return this.http.post(url,{}, options);
     }
 
     register(email, password) {

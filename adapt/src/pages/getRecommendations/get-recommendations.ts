@@ -12,15 +12,17 @@ import { UserProvider } from '../../providers/userService';
   templateUrl: 'get-recommendations.html'
 })
 export class RecommendationsPage {
-  userID = 1;
+  userID: number;
   houses: House[];
   rooms : Array<{typeId:number, name: string }>;
-  houseSelected: number = 0;
+  selectedHouseId: number = 0;
 
   constructor(public navCtrl: NavController, public housesProvider: HousesProvider, public userSession: UserProvider) {
     this.userID = userSession.user.userId;
     this.initializeRoomTypes()
+    this.populateHousesArray([]);
     this.getHouses();
+    this.selectedHouseId = 0;
 
   }
 
@@ -40,18 +42,25 @@ export class RecommendationsPage {
   }
 
   getHouses(){
-
     this.housesProvider.getHouses(this.userID).subscribe(houses => {
-      this.houses = houses;
-      console.log(houses);
+      this.populateHousesArray(houses);
     })
   }
 
+  populateHousesArray(houses){
+    const noHouseSelected = new House({name: "No House Selected", id: 0, numResident:0})
+    this.houses = [...[noHouseSelected], ...houses];  
+  }
 
-  showRecommendations(roomID) {
+
+  showRecommendations(room) {
+    console.log("my house id");
+    console.log(this.selectedHouseId);  
+    console.log(this.houses);
     this.navCtrl.push(RecommendsPage, {
-      roomId: roomID,
-      houseId: this.houseSelected
+      roomType: room.typeId,
+      houseId: this.selectedHouseId,
+      roomName:room.name
     });
   }
 }

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { House } from '../shared/housesclass';
+import { Recommendation } from '../shared/recommendation';
 import { SERVER_URL } from '../shared/environment';
 import { map } from 'rxjs/operators';
 @Injectable()
@@ -68,6 +69,16 @@ export class HousesProvider {
         console.log(err);
       });
     });
+  }
+
+
+  getRecommendationsFor(houseID: number, roomType: number) {
+      
+    var url = this.houseEndpoint + '/' + houseID + "/getRecommendations/" + roomType;
+    console.log(url);
+    return this.http.get<any[]>(url).pipe(map((data) => {
+        return data.map( house => new Recommendation(house)) 
+    }));
   }
 
 }

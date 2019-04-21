@@ -13,32 +13,38 @@
     <ion-content padding>
         <div>Resident Name</div>
         <ion-item class="item-box">
-           <ion-input type="text" value="" [(ngModel)]="newRes.name"></ion-input>
+           <ion-input type="text" value="" [(ngModel)]="newResident.name"></ion-input>
         </ion-item>
         <br>
         <div>Resident Age</div>
         <ion-item class="item-box">
-          <ion-input type="number" value=18 [(ngModel)]="newRes.age"></ion-input>
+          <ion-input type="number" value=18 [(ngModel)]="newResident.age"></ion-input>
         </ion-item>
         <br>
+        <div>Resident Gender</div>
+        <ion-item class="item-box">
+          <ion-select  [(ngModel)]="newResident.gender" okText="Okay" cancelText="Dismiss">
+            <ion-option *ngFor="let gender of genders" value={{gender.value}}>{{gender.label}}</ion-option>
+          </ion-select>
+        </ion-item>
         <div>Resident Physical Concern(s)</div>
         <ion-item class="item-box">
-          <ion-select multiple="true" [(ngModel)]="newRes.physicalConcerns">
+          <ion-select multiple="true" [(ngModel)]="newResident.concerns">
             <ion-option *ngFor="let con of physConcerns" value={{con.value}}>{{con.label}}</ion-option>
           </ion-select>
         </ion-item>
         <br>
         <div>Resident Income</div>
         <ion-item class="item-box">
-          <ion-select [(ngModel)]="newRes.income" okText="Okay" cancelText="Dismiss">
+          <ion-select [(ngModel)]="newResident.income" okText="Okay" cancelText="Dismiss">
             <ion-option  *ngFor="let income of incomes" value={{income.value}}>{{income.label}}</ion-option>
           </ion-select>
         </ion-item>
         <br>
         <div>Resident State</div>
         <ion-item class="item-box">
-          <ion-select  [(ngModel)]="newRes.state" okText="Okay" cancelText="Dismiss">
-            <ion-option *ngFor="let state of states" value="{{state}}">{{state}}</ion-option>
+          <ion-select  [(ngModel)]="newResident.state" okText="Okay" cancelText="Dismiss">
+            <ion-option *ngFor="let state of states; let i = index" value="{{i}}">{{state}}</ion-option>
           </ion-select>
         </ion-item>
         <button ion-button class="submit-button" (click)="create()">Save</button>

@@ -26,7 +26,8 @@ export class ResidentProvider {
   create(userID: number, residentData:Resident) {
     return new Promise(resolve => {
       var data = {...residentData.toNetworkJSON(), userId:userID}
-      console.log(residentData)
+      console.log("data");
+      console.log(data)
       this.http.post(this.residentEndpoint,data ).subscribe(data => {
         console.log("what")
         resolve(data);  

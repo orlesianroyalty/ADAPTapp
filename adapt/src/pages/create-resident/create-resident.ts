@@ -12,27 +12,44 @@ import { UserProvider } from '../../providers/userService';
 //TODO: create enum for the physical concerns, then create a drop down
 //in html to map this enum type and enable multi select
 export class CreateResidentPage {
+    newResident: Resident = new Resident();
     userID: number;
-    newRes: Resident;
+
     physConcerns: Array<{label: string, value: number}>;
     incomes : Array<{label: string, value: number}>;
     states: String[];
+    genders: Array<{label: string, value: number}>;
 
   constructor(public navCtrl: NavController,
-    public residentProvider: ResidentProvider,
-    public userSession: UserProvider,
-      public viewCtrl:ViewController) {
+              public residentProvider: ResidentProvider,
+              public userSession: UserProvider,
+              public viewCtrl:ViewController) {
     this.instantiateNewVars();
     this.userID = userSession.user.userId;
     
   }
 
   create() {
-    this.residentProvider.create(this.userID, this.newRes)
+    console.log(this.newResident.toNetworkJSON());
+    // var newRes = new Resident({
+    //   name:this.name,
+    //   id: 0,//THis will be ignored by the
+    //   age: Number(this.resAge),
+    //   gender:Number(this.resGender),
+    //   concerns: this.parseConcerns(this.resConcerns),
+    //   income:Number(this.resIncome),
+    //   state: Number(this.resState)
+    // })
+    //console.log(newRes.toNetworkJSON());
+    this.residentProvider.create(this.userID,this.newResident)
      .then( data => {
       console.log(data);
       this.dismiss();
     });
+  }
+
+  parseConcerns(resConcerns){
+    return [1,2]
   }
 
   dismiss() {
@@ -48,7 +65,9 @@ export class CreateResidentPage {
    * Instantiates empty variables for a new resident, the list of physical concerns, and the list of incomes.
    */
   instantiateNewVars() {
-    this.newRes = new Resident();
+    this.genders = [{label: "Male", value: 0},
+                      {label: "Female", value: 1},
+                    {label: "Other", value: 2}];
     this.states = ["Alabama", "Georgia", "Tennessee", "Florida"];
     this.incomes = [{label: "<30k", value: 0},
                     {label: "30k~60k", value: 1},

@@ -34,9 +34,11 @@ export class ResidentsPage {
   }
 
   editResident(resident){
-    this.residentProvider.update(resident.id, resident).subscribe(()=>{
-      this.getResidents();
-    })
+    //TODO: show a new edit page with the resident info and then call
+
+    // this.residentProvider.update(resident.id, resident).subscribe(()=>{
+    //   this.getResidents();
+    // })
   }
 
   deleteResident(resident){

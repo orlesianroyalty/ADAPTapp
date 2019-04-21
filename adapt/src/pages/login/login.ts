@@ -44,7 +44,7 @@ export class LoginPage {
 
     guestEntry(){
 
-      this.userProvider.login("demo@adapt.com", "demo2019")
+      this.userProvider.login("demo@adapt.com", "password")
       .then( data  => {
           this.user = data;
           this.user.isGuest = true;
