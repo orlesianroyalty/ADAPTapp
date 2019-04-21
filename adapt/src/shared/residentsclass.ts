@@ -9,9 +9,9 @@ export class Resident {
     name: string = "";
     age: Number = 0;
     gender: Number = 0;
-    physicalConcerns: Number[] = [];
+    concerns: Number[] = [];
     income: Number = 0;
-    state: string = "";
+    state: Number = 0;
     id?: Number = 0;
 
 
@@ -20,9 +20,9 @@ export class Resident {
         id: number,
         age: Number,
         gender: Number,
-        physicalConcerns: Number[],
+        concerns: Number[],
         income: Number,
-        state: string,
+        state: Number,
     }) {
         this.name = resJSON && resJSON.name;
         this.id =  resJSON && resJSON.id;
@@ -33,7 +33,7 @@ export class Resident {
             name:this.name,
             age:this.age,
             gender: this.gender,
-            physicalConcernse:this.physicalConcerns,
+            concerns:this.concerns,
             income: this.income,
             location:this.state
         }

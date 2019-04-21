@@ -74,7 +74,8 @@ export class HousesProvider {
 
   getRecommendationsFor(houseID: number, roomType: number) {
       
-    var url = this.houseEndpoint + '/' + houseID + "/getRecommendations"
+    var url = this.houseEndpoint + '/' + houseID + "/getRecommendations/" + roomType;
+    console.log(url);
     return this.http.get<any[]>(url).pipe(map((data) => {
         return data.map( house => new Recommendation(house)) 
     }));

@@ -8,15 +8,15 @@
   </ion-header>
   <ion-content>
     <div>
-      <ion-label>Select House: <ion-label >{{houseName}}</ion-label></ion-label>
-      <ion-select [(ngModel)]="houseSelected">
-        <ion-option *ngFor="let house of houses" [selected] = "houseSelected == house.id" value="{{house.id}}">{{house.name}}</ion-option>
-      </ion-select>
+      <ion-label>Select House: 
+        <ion-select [(ngModel)]="houseSelected">
+          <ion-option *ngFor="let house of houses" [selected] = "houseSelected == house.id" value="{{house.id}}">{{house.name}}</ion-option>
+        </ion-select></ion-label>
     </div>
     <div>
         <ion-grid>
           <ion-row>
-            <ion-col class="room-block" col-6 *ngFor="let room of rooms" onclick="showRecommendations(room.typeId)">
+            <ion-col class="room-block" col-6 *ngFor="let room of rooms" (click)="showRecommendations(room)">
               {{room.name}}
             </ion-col>
           </ion-row>

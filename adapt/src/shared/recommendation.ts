@@ -16,6 +16,7 @@ export class Recommendation {
     name: string;
     id: number;
     description: string;
+    imageURL: string;
     cost: number;
     type: number;
     websites: WebSite[]
@@ -24,6 +25,7 @@ export class Recommendation {
         name: string,
         id: number,
         description: string,
+        imageURL: string,
         cost: number,
         type: number,
         websites: WebSite[]
@@ -32,6 +34,7 @@ export class Recommendation {
         this.id = recJSON.id;
         this.description = recJSON.description;
         this.cost = recJSON.cost;
+        this.imageURL = recJSON.imageURL;
         this.type =  recJSON.type;
         this.websites = recJSON.websites;
     }

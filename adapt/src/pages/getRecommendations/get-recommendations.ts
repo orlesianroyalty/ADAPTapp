@@ -16,12 +16,13 @@ export class RecommendationsPage {
   houses: House[];
   rooms : Array<{typeId:number, name: string }>;
   houseSelected: number = 0;
-  houseName: string;
 
   constructor(public navCtrl: NavController, public housesProvider: HousesProvider, public userSession: UserProvider) {
     this.userID = userSession.user.userId;
     this.initializeRoomTypes()
+    this.populateHousesArray([]);
     this.getHouses();
+    this.houseSelected = 0;
 
   }
 
@@ -41,20 +42,26 @@ export class RecommendationsPage {
   }
 
   getHouses(){
-
     this.housesProvider.getHouses(this.userID).subscribe(houses => {
-      this.houses = houses;
-      console.log(houses);
-      this.houseSelected = 0;
-      this.houseName = this.houses[this.houseSelected].name;
+      this.populateHousesArray(houses);
     })
   }
 
+  populateHousesArray(houses){
+    this.houses = [];
+    const noHouseSelected = new House({name: "No House Selected", id: 0, numResident:0})
+    this.houses.push(noHouseSelected);
+    this.houses = [...this.houses, ...houses];
+  }
 
-  showRecommendations(roomID) {
+
+  showRecommendations(room) {
+    console.log(this.houseSelected);
+    console.log(this.houses);
     this.navCtrl.push(RecommendsPage, {
-      roomId: roomID,
-      houseId: this.houseSelected
+      roomType: room.typeId,
+      houseId: this.houses[this.houseSelected].id,
+      roomName:room.name
     });
   }
 }
