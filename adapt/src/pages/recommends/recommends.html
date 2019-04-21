@@ -1,6 +1,9 @@
 <ion-header>
     <ion-navbar>
       <ion-title>{{roomName}}</ion-title>
+      <button ion-button end menuToggle>
+          <ion-icon name="menu"></ion-icon>
+      </button> 
     </ion-navbar>
   <ion-toolbar>
 
@@ -17,16 +20,19 @@
 
   <div >
       <ion-grid>
-        <ion-row style="height: 90px" *ngFor="let rec of filteredRecs">
-            <div class="rec-image">
-              <img style="width: 80px;height: 80px;" src={{rec.imageURL}} />
-            </div>
-            <div class="rec-info">
-                <p>{{rec.name}}</p>
-                <p><em>{{rec.description}}</em></p>
-            </div>
-          
+        <ion-item-divider *ngFor="let rec of filteredRecs">
+        <ion-row style="height: 80px" (click)="showRecommendationDetail(rec)">
+            
+                <div class="rec-image">
+                  <img style="width: 80px;height: 80px;" src={{rec.imageURL}} />
+                </div>
+                <div class="rec-info">
+                    <p>{{rec.name}}</p>
+                    <p><em>{{rec.description}}</em></p>
+                </div>
+            
         </ion-row>
+      </ion-item-divider>
       </ion-grid>
   </div>
 </ion-content>

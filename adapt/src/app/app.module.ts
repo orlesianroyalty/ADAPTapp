@@ -40,6 +40,7 @@ import { TipProvider } from '../providers/tipService';
 import { RoomsProvider } from '../providers/roomService';
 import { RecommendationsProvider } from '../providers/recommendationService';
 import { UserProvider} from '../providers/userService';
+import { RecommendationSlideshowPage } from '../pages/recommendation-slideshow/recommendation-slideshow';
 @NgModule({
   declarations: [
     MyApp,
@@ -49,6 +50,7 @@ import { UserProvider} from '../providers/userService';
     ChecklistPage,
     MyProfileTabsPage,
     RecommendationsPage,
+    RecommendationSlideshowPage,
     TipsPage,
     TipsListPage,
     TipDetailPage,
@@ -83,6 +85,7 @@ import { UserProvider} from '../providers/userService';
     ChecklistPage,
     MyProfileTabsPage,
     RecommendationsPage,
+    RecommendationSlideshowPage,
     TipsPage,
     TipsListPage,
     TipDetailPage,

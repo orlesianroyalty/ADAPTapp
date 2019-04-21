@@ -9,8 +9,8 @@
   <ion-content>
     <div>
       <ion-label>Select House: 
-        <ion-select [(ngModel)]="houseSelected">
-          <ion-option *ngFor="let house of houses" [selected] = "houseSelected == house.id" value="{{house.id}}">{{house.name}}</ion-option>
+        <ion-select [(ngModel)]="selectedHouseId">
+          <ion-option *ngFor="let house of houses" [selected] = "selectedHouseId == house.id" value="{{house.id}}">{{house.name}}</ion-option>
         </ion-select></ion-label>
     </div>
     <div>

@@ -1,11 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { MobilityRecommends } from './../mobility-recommends/mobility-recommends';
-import { SafetyRecommends } from './../safety-recommends/safety-recommends';
-import { VisibilityRecommends } from './../visibility-recommends/visibility-recommends';
-import { RecommendsTabsPage } from '../recommends-tabs/recommends-tabs';
 import { Recommendation } from '../../shared/recommendation';
 import { HousesProvider } from '../../providers/housesService';
+import { RecommendationSlideshowPage } from '../recommendation-slideshow/recommendation-slideshow';
 
 @Component({
   selector: 'page-recommends',
@@ -61,9 +58,12 @@ export class RecommendsPage {
   }
 
   showRecommendationDetail(rec){
-    // this.navCtrl.push(RecommendsPage, {
-    //   recommendation: rec
-    // });
+    this.navCtrl.push(RecommendationSlideshowPage, {
+      initialRec: rec,
+      recommendations: this.recommendations,
+      houseId: this.houseId,
+      roomName: this.roomName,
+    });
   }
 
   

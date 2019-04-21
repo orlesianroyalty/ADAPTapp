@@ -1,0 +1,50 @@
+<ion-header>
+    <ion-navbar>
+        <ion-buttons start>
+                <button menuToggle>
+                    <ion-icon name="menu"></ion-icon>
+                </button>
+        </ion-buttons>
+        <ion-title>{{roomName}}</ion-title>
+
+        <ion-buttons end>
+                <button menuToggle>
+                    <ion-icon name="menu"></ion-icon>
+                </button>
+        </ion-buttons>
+        <button ion-button menuToggle right>
+                <ion-icon name="menu"></ion-icon>
+        </button>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-slides  pager="true" #recSlide >
+        <ion-slide *ngFor="let rec of recommendations">
+                <ion-card>
+
+                        <ion-card-header>
+                                <img style="padding: 5px 5px 5px 5px" src={{rec.imageURL}} />
+                        </ion-card-header>
+                      
+                        <ion-card-content>
+                               
+                            <ion-buttons right>
+                                <button ion-button icon-only clear  (click)="addToChecklist(rec)">
+                                        <ion-icon name="bookmark"></ion-icon>
+                                </button>
+                            </ion-buttons>
+                            <ion-label class= "rec-name"text-left>
+                                {{rec.name}}
+                            </ion-label>
+                            <ion-label class= "rec-description" text-left>
+                                {{rec.description}}
+                            </ion-label>
+                          <!-- Add card content here! -->
+                        </ion-card-content>
+                      
+                      </ion-card>
+        </ion-slide>
+    </ion-slides>
+</ion-content>

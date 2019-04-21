@@ -15,14 +15,14 @@ export class RecommendationsPage {
   userID: number;
   houses: House[];
   rooms : Array<{typeId:number, name: string }>;
-  houseSelected: number = 0;
+  selectedHouseId: number = 0;
 
   constructor(public navCtrl: NavController, public housesProvider: HousesProvider, public userSession: UserProvider) {
     this.userID = userSession.user.userId;
     this.initializeRoomTypes()
     this.populateHousesArray([]);
     this.getHouses();
-    this.houseSelected = 0;
+    this.selectedHouseId = 0;
 
   }
 
@@ -48,19 +48,18 @@ export class RecommendationsPage {
   }
 
   populateHousesArray(houses){
-    this.houses = [];
     const noHouseSelected = new House({name: "No House Selected", id: 0, numResident:0})
-    this.houses.push(noHouseSelected);
-    this.houses = [...this.houses, ...houses];
+    this.houses = [...[noHouseSelected], ...houses];  
   }
 
 
   showRecommendations(room) {
-    console.log(this.houseSelected);
+    console.log("my house id");
+    console.log(this.selectedHouseId);  
     console.log(this.houses);
     this.navCtrl.push(RecommendsPage, {
       roomType: room.typeId,
-      houseId: this.houses[this.houseSelected].id,
+      houseId: this.selectedHouseId,
       roomName:room.name
     });
   }

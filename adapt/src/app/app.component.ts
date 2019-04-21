@@ -54,6 +54,12 @@ export class MyApp {
       this.nav.setRoot(page.component, {
         user: this.userSession.user
       });
+    }else if(page.title == 'Log Out') {
+      console.log(this.userSession.user.accessToken)
+      this.userSession.logout(this.userSession.user.accessToken).subscribe(result =>{
+        this.nav.setRoot(page.component);
+      })
+      
     }else{
       this.nav.setRoot(page.component);
     }
