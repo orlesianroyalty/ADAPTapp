@@ -1,7 +1,8 @@
 export enum PhysicalConcerns {
     WheelChair = 0,
     Blindness = 1,
-    SpeechImpairment = 2
+    SpeechImpairment = 2,
+    Deaf = 3,
 }
 
 

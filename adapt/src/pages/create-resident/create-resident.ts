@@ -68,12 +68,20 @@ export class CreateResidentPage {
     this.genders = [{label: "Male", value: 0},
                       {label: "Female", value: 1},
                     {label: "Other", value: 2}];
-    this.states = ["Alabama", "Georgia", "Tennessee", "Florida"];
+    this.states = [
+      'AL','AK','AS','AZ','AR','CA','CO','CT','DE','DC','FM','FL','GA',
+      'GU','HI','ID','IL','IN','IA','KS','KY','LA','ME','MH','MD','MA',
+      'MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND',
+      'MP','OH','OK','OR','PW','PA','PR','RI','SC','SD','TN','TX','UT',
+      'VT','VI','VA','WA','WV','WI','WY'
+     ];
     this.incomes = [{label: "<30k", value: 0},
                     {label: "30k~60k", value: 1},
                     {label: "60k+", value: 2}];
     this.physConcerns = [{label: "Wheelchair", value: 0},
                     {label: "Blindness", value: 1},
-                    {label: "Manual Dexterity", value: 2}];
+                    {label: "Speech impairment", value: 2},
+                    {label: "Deaf", value: 3}
+                  ];
   }
 }

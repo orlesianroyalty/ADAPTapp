@@ -20,7 +20,7 @@
 
 <ion-content>
 
-    <ion-slides  pager="true" #recSlide >
+    <ion-slides pager="true" #recSlide >
         <ion-slide *ngFor="let rec of recommendations">
                 <ion-card>
 
@@ -35,7 +35,7 @@
                                         <ion-icon name="bookmark"></ion-icon>
                                 </button>
                             </ion-buttons>
-                            <ion-label class= "rec-name"text-left>
+                            <ion-label class= "rec-name" text-left>
                                 {{rec.name}}
                             </ion-label>
                             <ion-label class= "rec-description" text-left>

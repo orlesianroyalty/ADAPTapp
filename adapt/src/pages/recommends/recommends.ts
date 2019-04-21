@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { Component,ViewChild } from '@angular/core';
+import { NavController, NavParams, Segment } from 'ionic-angular';
 import { Recommendation } from '../../shared/recommendation';
 import { HousesProvider } from '../../providers/housesService';
 import { RecommendationSlideshowPage } from '../recommendation-slideshow/recommendation-slideshow';
@@ -10,20 +10,21 @@ import { RecommendationSlideshowPage } from '../recommendation-slideshow/recomme
 })
 export class RecommendsPage {
 
+  @ViewChild('mySeg') myseg:Segment
   houseId: number;
   roomType: number;
   roomName:string;
 
     //match this to recommendation category in the recomemndation class.
-  recTypes: Array<{id:number, name:string}> = [
-    {id:0, name: "Safety" },
-    {id:1, name: "Mobility" },
-    {id:2, name: "Visibility" },
+  recTypes: Array<{id:string, name:string}> = [
+    {id:'0', name: "Safety" },
+    {id:'1', name: "Mobility" },
+    {id:'2', name: "Visibility" },
   ];
   imagePath: any = '';
   recommendations: Recommendation[] = [];
   filteredRecs: Recommendation[] = [];
-  selectedCategory: number = 0;
+  selectedCategory: string = "0";
   searchText:string="";
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
@@ -33,6 +34,10 @@ export class RecommendsPage {
     this.roomType  = navParams.get('roomType');
     this.roomName  = navParams.get('roomName');
     console.log(this.roomType);
+  }
+
+  ionViewWillEnter(){
+    this.selectedCategory = "0";
     this.getRecomendations();
   }
   
@@ -40,6 +45,7 @@ export class RecommendsPage {
     this.houseProvider.getRecommendationsFor(this.houseId,this.roomType).subscribe(recs => {
       this.recommendations = recs;
       this.filteredRecs = this.recommendations;
+      this.filterRecs(null);
       console.log(recs)
     });
   }
@@ -50,7 +56,7 @@ export class RecommendsPage {
     console.log(this.searchText)
     this.filteredRecs = this.recommendations.filter(rec=>{
       if (rec.name.includes(this.searchText)) {
-        return rec.type == this.selectedCategory;
+        return rec.type.toString() == this.selectedCategory;
       }
       return false;
     })
@@ -58,9 +64,12 @@ export class RecommendsPage {
   }
 
   showRecommendationDetail(rec){
+    const filteredByCategory = this.recommendations.filter(rec=>{
+      return rec.type.toString() == this.selectedCategory;
+    })
     this.navCtrl.push(RecommendationSlideshowPage, {
       initialRec: rec,
-      recommendations: this.recommendations,
+      recommendations: filteredByCategory,
       houseId: this.houseId,
       roomName: this.roomName,
     });

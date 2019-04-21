@@ -9,7 +9,7 @@
 
     <ion-searchbar [(ngModel)]="searchText" (ionChange)="filterRecs()" placeholder="Search recommendations"></ion-searchbar>
   </ion-toolbar>
-    <ion-segment [(ngModel)]="selectedCategory" (ionChange)="filterRecs($event)">
+    <ion-segment [(ngModel)]="selectedCategory" (ionChange)="filterRecs($event)" #mySeg>
         <ion-segment-button *ngFor="let category of recTypes" value="{{category.id}}">
             {{category.name}}
         </ion-segment-button>

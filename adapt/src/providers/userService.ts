@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders  } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable} from '@angular/core';
 import { SERVER_URL } from '../shared/environment';
 import {User, AuthenticatedUser} from '../shared/user';
 
@@ -8,7 +8,6 @@ import {User, AuthenticatedUser} from '../shared/user';
 
 export class UserProvider {
 
-  
     private apiUrl = SERVER_URL + '/api/';
     private userEndpoint = this.apiUrl+'users';
     user: AuthenticatedUser;

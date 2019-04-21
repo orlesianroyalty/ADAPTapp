@@ -2,7 +2,6 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, Slides, AlertController } from 'ionic-angular';
 import { UserProvider } from '../../providers/userService';
 import { Recommendation } from '../../shared/recommendation';
-import { c } from '@angular/core/src/render3';
 import { HousesProvider } from '../../providers/housesService';
 
 @Component({
@@ -34,11 +33,15 @@ export class RecommendationSlideshowPage {
     
   }
 
-
-  ionViewDidEnter() {
-    this.slider.slideTo(this.initialRec, 0);
+  ionViewWillEnter(){
+    this.slider.initialSlide = this.initialRec;
+    this.slider.slideTo(this.initialRec);
     this.slider.pager = true;
     this.slider.paginationHide = false;
+  }
+
+
+  ionViewDidEnter() {
   }
 
   findRecIndex(rec){
