@@ -28,6 +28,7 @@ export class LoginPage {
       this.userProvider.login(this.email, this.password)
       .then( data  => {
           this.user = data;
+          this.userProvider.user.isGuest = false;
           console.log(data);
           this.showHomePage(this.email);
       }).catch (err =>{
@@ -47,7 +48,7 @@ export class LoginPage {
       this.userProvider.login("demo@adapt.com", "password")
       .then( data  => {
           this.user = data;
-          this.user.isGuest = true;
+          this.userProvider.user.isGuest = true;
           console.log(data);
           this.showHomePage("demo@adapt.com");
       }).catch (err =>{

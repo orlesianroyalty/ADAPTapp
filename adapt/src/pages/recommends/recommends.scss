@@ -1,8 +1,28 @@
 .rec-image{
     padding: 2px 2px 2px 2px;
     border-radius: 3px;
+    display: inline-block;
+    width: 25%;
 }
 
 .rec-info{
-    padding: 5px 5px 5px 5px
+    padding: 5px 5px 5px 5px;
+    display: inline-block;
+    width: 75%;
+}
+.rec-name {
+    height: 30%;
+    font-size: 18;
+    font-weight: bold;
+    text-overflow: clip;
+    overflow-wrap: break-word;
+
+}
+.rec-desc{
+    height: 70%;
+    font-size: 16;
+    font-weight: normal;
+    word-wrap: break-all;
+    position: absolute;
+    bottom: 0;
 }

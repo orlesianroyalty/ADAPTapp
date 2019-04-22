@@ -52,7 +52,8 @@ export class HousesProvider {
   saveTip(houseID: number, tipID: number) { 
     //TODO: add the remote method for this.
     return new Promise(resolve => {
-      this.http.get(this.houseEndpoint+houseID+'/savedTips/rel/'+ tipID).subscribe(data => {
+      const url = this.houseEndpoint+ '/' +houseID+'/savedTips/rel/'+ tipID;
+      this.http.put(url,{}).subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
@@ -63,7 +64,9 @@ export class HousesProvider {
   saveRecommendation(houseID: number, recID: number) { 
     //TODO: add the remote method for this.
     return new Promise(resolve => {
-      this.http.get(this.houseEndpoint+'/users').subscribe(data => {
+      const url = this.houseEndpoint+ '/' +houseID+'/savedRecommendations/rel/'+ recID;
+
+      this.http.put(url,{}).subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);

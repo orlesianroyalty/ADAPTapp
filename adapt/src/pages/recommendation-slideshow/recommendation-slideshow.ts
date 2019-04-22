@@ -56,7 +56,6 @@ export class RecommendationSlideshowPage {
   }
 
   addToChecklist(rec){
-      console.log("clocked")
       if (this.userSession.user.isGuest) {
         let alert = this.alertCtrl.create({
             title: 'Oops',
@@ -65,7 +64,32 @@ export class RecommendationSlideshowPage {
           });
         alert.present();
       }else{
-        this.houseProvider.saveRecommendation(this.houseId, rec.id)
+
+        if (this.houseId == 0) {
+          let alert = this.alertCtrl.create({
+            title: 'Oops',
+            subTitle:"Please create a house or select a house to save the recommendation!",
+            buttons: ['Dismiss']
+          });
+          alert.present();
+        }else{
+          this.houseProvider.saveRecommendation(this.houseId, rec.id).then(result=>{
+            let alert = this.alertCtrl.create({
+              title: 'Success!',
+              subTitle:"Recommendation saved for the house!",
+              buttons: ['Dismiss']
+            });
+            alert.present();
+          }).catch(err=>{
+            let alert = this.alertCtrl.create({
+              title: 'Oops',
+              subTitle:err,
+              buttons: ['Dismiss']
+            });
+            alert.present();
+          })
+        }
+        
       }
   }
 
